@@ -3,51 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chefs-Hub | 2026 Masterclass</title>
+    <title>Chefs-Hub | Elite Culinary Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #0f0f0f; --card: #1e1e1e; --text: #efefef; --accent: #4285f4; }
-        body { font-family: sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
-        .container { max-width: 1200px; margin: auto; }
-        h1 { text-align: center; color: var(--accent); }
-        .recipe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .recipe-card { background: var(--card); border-radius: 15px; padding: 20px; border: 1px solid #333; }
-        .recipe-img { width: 100%; hieght: 200px; border-radius: 10px; object-fit: cover; }
-        .section-title { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-top: 15px; }
-        ul, ol { padding-left: 20px; font-size: 0.9rem; line-height: 1.5; color: #ccc; }
+        :root {
+            --glass: rgba(255, 255, 255, 0.05);
+            --accent: #4285f4;
+            --text-dim: #b0b0b0;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #1a1a1a, #000000);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: 0.5s;
+        }
+
+        .card:hover .card-img { filter: grayscale(0%); scale: 1.1; }
+
+        .card-content { padding: 25px; }
+
+        .tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .apparatus-list {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .step-item { color: var(--text-dim); margin-bottom: 8px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Chefs-Hub: Top 20 Dishes (2016-2026)</h1>
-        <div class="recipe-grid">
 
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400" class="recipe-img">
-                <h2>Molecular Apple Sphere</h2>
-                <div class="section-title">Apparatus</div>
-                <ul><li>Digital Scale</li><li>Spherification Spoon</li><li>Immersion Blender</li></ul>
-                <div class="section-title">Recipe & Steps</div>
-                <ol>
-                    <li>Mix Apple juice with Calcium Lactate.</li>
-                    <li>Drop mixture into a Sodium Alginate bath.</li>
-                    <li>Rinse in water and serve on a ceramic spoon.</li>
-                </ol>
-            </div>
-
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400" class="recipe-img">
-                <h2>Nitro-Poached Basil Mousse</h2>
-                <div class="section-title">Apparatus</div>
-                <ul><li>Liquid Nitrogen Tank</li><li>Siphon Whipper</li><li>Cryo-gloves</li></ul>
-                <div class="section-title">Recipe & Steps</div>
-                <ol>
-                    <li>Charge basil cream in a siphon.</li>
-                    <li>Express foam into a bowl of Liquid Nitrogen.</li>
-                    <li>Freeze for 10 seconds until a "shell" forms.</li>
-                </ol>
-            </div>
-
-            </div>
+    <div class="header">
+        <h1>CHEFS-HUB</h1>
+        <p style="color: var(--text-dim);">A decade of advanced culinary data for the modern master.</p>
     </div>
+
+    <div class="recipe-grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551326844-4df70f78d0e9?w=600" class="card-img">
+            <div class="card-content">
+                <span class="tag">Molecular 2026</span>
+                <h2>Nitrogen Beet Caviar</h2>
+                <div class="apparatus-list">
+                    <strong>Apparatus:</strong> Siphon, Liquid Nitrogen, Digital Scale
+                </div>
+                <div class="step-item">1. Reduce beet juice by 50% for intensity.</div>
+                <div class="step-item">2. Flash-freeze droplets in nitrogen bath.</div>
+                <div class="step-item">3. Serve at exactly -10°C for texture.</div>
+            </div>
+        </div>
+
+        </div>
+
 </body>
 </html>
