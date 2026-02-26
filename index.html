@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Hub | Advanced Culinary Intelligence</title>
+    <style>
+        :root {
+            --bg-dark: #131314;
+            --sidebar-bg: #1e1f20;
+            --text-main: #e3e3e3;
+            --accent-blue: #4285f4;
+            --card-bg: #28292a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .logo { font-weight: bold; font-size: 1.5rem; color: var(--accent-blue); }
+
+        .nav-item {
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover { background: #333537; }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-text { text-align: center; margin-bottom: 40px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #444;
+            transition: transform 0.2s;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+
+        .tag {
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Input Area (Gemini Style) */
+        .search-container {
+            position: fixed;
+            bottom: 30px;
+            width: 60%;
+            max-width: 700px;
+            background: #2e2f31;
+            border-radius: 30px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            color: white;
+            width: 100%;
+            font-size: 1rem;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">CHEF-AI</div>
+        <div class="nav-item">🏠 Home</div>
+        <div class="nav-item">🔥 Trending Dishes</div>
+        <div class="nav-item">🧪 Advanced Techniques</div>
+        <div class="nav-item">📖 Basic Foundations</div>
+    </div>
+
+    <div class="main-content">
+        <div class="header-text">
+            <h1>Hello, Chef.</h1>
+            <p>What are we creating today?</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <span class="tag">New Dish</span>
+                <h3>Miso-Glazed Sea Bass</h3>
+                <p>Learn the 2026 "Swavory" technique for perfect caramelization.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Advanced</span>
+                <h3>Spherification 2.0</h3>
+                <p>Creating liquid-center olives using molecular gastronomy.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Basic</span>
+                <h3>The Perfect Consommé</h3>
+                <p>Mastering the art of the crystal clear French soup base.</p>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="Ask for a recipe, technique, or ingredient info...">
+        </div>
+    </div>
+
+</body>
+</html>
