@@ -1,124 +1,53 @@
-<h2 style="text-align:center; color: #4285f4; margin-top: 50px;">A Decade of Gastronomy (2016 - 2026)</h2>
-<div class="grid">
-    <div class="card">
-        <span class="tag">2026: Functional Tech</span>
-        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400" alt="2026 Dish" style="width:100%; border-radius:12px; margin:10px 0;">
-        <h3>Algae-Infused Broth</h3>
-        <p><b>Recipe:</b> High-pressure extraction of sea minerals paired with flash-frozen herb pearls.</p>
-    </div>
-
-    <div class="card">
-        <span class="tag">2023: Sustainable</span>
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400" alt="2023 Dish" style="width:100%; border-radius:12px; margin:10px 0;">
-        <h3>3D-Printed Mycelium Steak</h3>
-        <p><b>Recipe:</b> Mushroom-based protein structured via precision layering and wood-fire searing.</p>
-    </div>
-
-    <div class="card">
-        <span class="tag">2019: The Lab</span>
-        <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=400" alt="2019 Dish" style="width:100%; border-radius:12px; margin:10px 0;">
-        <h3>Kombucha-Glazed Duck</h3>
-        <p><b>Recipe:</b> 48-hour dry-aged duck breast basted in a reduction of ginger-scallion ferment.</p>
-    </div>
-
-    <div class="card">
-        <span class="tag">2016: Classic Molecular</span>
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400" alt="2016 Dish" style="width:100%; border-radius:12px; margin:10px 0;">
-        <h3>Deconstructed Apple Pie</h3>
-        <p><b>Recipe:</b> Cinnamon air, apple-juice spheres, and a shortbread "soil" crumble.</p>
-    </div>
-</div>
-        }
-
-        .header-text { text-align: center; margin-bottom: 40px; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1000px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid #444;
-            transition: transform 0.2s;
-        }
-
-        .card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
-
-        .tag {
-            font-size: 0.8rem;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Input Area (Gemini Style) */
-        .search-container {
-            position: fixed;
-            bottom: 30px;
-            width: 60%;
-            max-width: 700px;
-            background: #2e2f31;
-            border-radius: 30px;
-            padding: 15px 25px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        input {
-            background: transparent;
-            border: none;
-            color: white;
-            width: 100%;
-            font-size: 1rem;
-            outline: none;
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chefs-Hub | 2026 Masterclass</title>
+    <style>
+        :root { --bg: #0f0f0f; --card: #1e1e1e; --text: #efefef; --accent: #4285f4; }
+        body { font-family: sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; }
+        h1 { text-align: center; color: var(--accent); }
+        .recipe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .recipe-card { background: var(--card); border-radius: 15px; padding: 20px; border: 1px solid #333; }
+        .recipe-img { width: 100%; hieght: 200px; border-radius: 10px; object-fit: cover; }
+        .section-title { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-top: 15px; }
+        ul, ol { padding-left: 20px; font-size: 0.9rem; line-height: 1.5; color: #ccc; }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Chefs-Hub: Top 20 Dishes (2016-2026)</h1>
+        <div class="recipe-grid">
 
-    <div class="sidebar">
-        <div class="logo">CHEF-AI</div>
-        <div class="nav-item">🏠 Home</div>
-        <div class="nav-item">🔥 Trending Dishes</div>
-        <div class="nav-item">🧪 Advanced Techniques</div>
-        <div class="nav-item">📖 Basic Foundations</div>
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400" class="recipe-img">
+                <h2>Molecular Apple Sphere</h2>
+                <div class="section-title">Apparatus</div>
+                <ul><li>Digital Scale</li><li>Spherification Spoon</li><li>Immersion Blender</li></ul>
+                <div class="section-title">Recipe & Steps</div>
+                <ol>
+                    <li>Mix Apple juice with Calcium Lactate.</li>
+                    <li>Drop mixture into a Sodium Alginate bath.</li>
+                    <li>Rinse in water and serve on a ceramic spoon.</li>
+                </ol>
+            </div>
+
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400" class="recipe-img">
+                <h2>Nitro-Poached Basil Mousse</h2>
+                <div class="section-title">Apparatus</div>
+                <ul><li>Liquid Nitrogen Tank</li><li>Siphon Whipper</li><li>Cryo-gloves</li></ul>
+                <div class="section-title">Recipe & Steps</div>
+                <ol>
+                    <li>Charge basil cream in a siphon.</li>
+                    <li>Express foam into a bowl of Liquid Nitrogen.</li>
+                    <li>Freeze for 10 seconds until a "shell" forms.</li>
+                </ol>
+            </div>
+
+            </div>
     </div>
-
-    <div class="main-content">
-        <div class="header-text">
-            <h1>Hello, Chef.</h1>
-            <p>What are we creating today?</p>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <span class="tag">New Dish</span>
-                <h3>Miso-Glazed Sea Bass</h3>
-                <p>Learn the 2026 "Swavory" technique for perfect caramelization.</p>
-            </div>
-            <div class="card">
-                <span class="tag">Advanced</span>
-                <h3>Spherification 2.0</h3>
-                <p>Creating liquid-center olives using molecular gastronomy.</p>
-            </div>
-            <div class="card">
-                <span class="tag">Basic</span>
-                <h3>The Perfect Consommé</h3>
-                <p>Mastering the art of the crystal clear French soup base.</p>
-            </div>
-        </div>
-
-        <div class="search-container">
-            <input type="text" placeholder="Ask for a recipe, technique, or ingredient info...">
-        </div>
-    </div>
-
 </body>
-</html> 
+</html>
