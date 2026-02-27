@@ -37,6 +37,8 @@
         .step-row { display: flex; gap: 30px; padding: 25px 0; border-bottom: 1px solid #f0e6d6; }
         .step-num { color: var(--spice); font-weight: bold; font-size: 1.2rem; min-width: 40px; font-family: sans-serif; }
 
+        .apparatus-tag { background: #f0e6d6; color: var(--spice); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-right: 10px; }
+
         /* CONTACT SECTION */
         .contact-footer { margin-top: 100px; text-align: center; padding: 60px; border-top: 1px solid #eee; background: #fffcf8; }
 
@@ -80,7 +82,7 @@
         </div>
 
         <div class="dish-card" onclick="openRecipe('rabri')">
-            <img src="https://images.unsplash.com/photo-1589113103503-49653d89bc45?w=1200">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1200">
             <div style="padding: 40px; text-align: center;">
                 <h2 style="font-weight: 400; font-size: 2rem;">03. Cryogenic Saffron Rabri Cloud</h2>
             </div>
@@ -88,7 +90,6 @@
 
         <div class="contact-footer">
             <h3 style="letter-spacing: 3px; font-weight: 300;">COLLABORATE WITH THE FOUNDER</h3>
-            <p style="color: #777; margin-bottom: 30px;">For technical inquiries and culinary consulting.</p>
             <button class="btn-spice" onclick="window.location.href='mailto:your-email@example.com'">Send Message</button>
             <p style="margin-top: 20px; font-size: 0.8rem; color: #999;">&copy; 2026 B.Vishnudhar Reddy | Chefs-Hub</p>
         </div>
@@ -97,6 +98,7 @@
     <div id="recipe-page">
         <p onclick="goToGallery()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 40px;">← BACK TO COLLECTION</p>
         <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; font-size: 2.5rem; border-bottom: 1px solid var(--accent); padding-bottom: 20px;"></h1>
+        <div id="apparatus-container" style="margin: 20px 0;"></div>
         <div id="steps-content"></div>
     </div>
 
@@ -111,6 +113,7 @@
         const recipes = {
             makhani: {
                 title: "Execution: Makhani Sphere",
+                apparatus: ["Vacuum Sealer", "Hickory Smoker", "Siphon Whipper"],
                 steps: [
                     "Select malai paneer; cut into 30mm cubes.", "Infuse 100ml milk with saffron for 30 mins.",
                     "Vacuum-seal paneer with infusion.", "Sous-vide at 65°C for 20 mins.",
@@ -124,6 +127,7 @@
             },
             biryani: {
                 title: "Execution: Modern Dum Biryani",
+                apparatus: ["pH Meter", "Lab-Grade Distiller", "Copper Deg"],
                 steps: [
                     "Select long-grain Basmati aged 2 years.", "Soak in pH-balanced water (pH 7.0).",
                     "Extract protein essence for 'Yakhni'.", "Vacuum-marinate meat with papaya enzyme.",
@@ -137,6 +141,7 @@
             },
             rabri: {
                 title: "Execution: Cryogenic Rabri Cloud",
+                apparatus: ["Liquid Nitrogen Dewar", "Cryo-Gloves", "Stand Mixer"],
                 steps: [
                     "Reduce full-fat milk by 70%.", "Infuse with Saffron and cardamom.",
                     "Sweeten with organic palm jaggery.", "Chill the rabri base to 4°C.",
@@ -156,6 +161,15 @@
             window.scrollTo(0,0);
             const selected = recipes[key];
             document.getElementById('recipe-title').innerText = selected.title;
+            
+            // Show Apparatus
+            let appHtml = "<strong>Apparatus:</strong> ";
+            selected.apparatus.forEach(a => {
+                appHtml += `<span class="apparatus-tag">${a}</span>`;
+            });
+            document.getElementById('apparatus-container').innerHTML = appHtml;
+
+            // Show Steps
             let html = "";
             selected.steps.forEach((s, i) => {
                 html += `<div class="step-row"><div class="step-num">${i+1 < 10 ? '0'+(i+1) : i+1}</div><div>${s}</div></div>`;
@@ -165,4 +179,4 @@
     </script>
 </body>
     </html>
-        
+    
