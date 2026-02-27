@@ -14,7 +14,6 @@
         
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; }
 
-        /* 1. WELCOME SCREEN */
         #welcome-screen { 
             height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
             background: linear-gradient(rgba(44, 26, 10, 0.7), rgba(44, 26, 10, 0.7)), 
@@ -24,7 +23,6 @@
         .chef-title { font-size: 4rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; }
         .founder-quote { max-width: 650px; font-size: 1.2rem; line-height: 1.8; font-style: italic; margin: 30px 0; padding: 0 20px; color: #eee; }
         
-        /* 2. GALLERY & RECIPE INTERFACE */
         #gallery-page, #recipe-page { display: none; padding: 80px 5%; max-width: 1000px; margin: auto; }
         .dish-card { 
             background: white; border-radius: 4px; overflow: hidden; 
@@ -37,7 +35,6 @@
         .step-row { display: flex; gap: 30px; padding: 25px 0; border-bottom: 1px solid #f0e6d6; }
         .step-num { color: var(--spice); font-weight: bold; font-size: 1.2rem; min-width: 40px; font-family: sans-serif; }
 
-        /* BUTTONS */
         .btn-spice { 
             padding: 18px 45px; background: var(--spice); color: white; border: none; 
             cursor: pointer; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem;
@@ -65,16 +62,21 @@
         <div class="dish-card" onclick="openRecipe('makhani')">
             <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200">
             <div style="padding: 40px; text-align: center;">
-                <h2 style="font-weight: 400; font-size: 2rem;">01. Smoked Makhani Sphere & Saffron Paneer</h2>
-                <p style="color: var(--spice); letter-spacing: 2px; font-size: 0.8rem; margin-top: 15px;">EXPLORE 15-STEP TECHNICAL DATA</p>
+                <h2 style="font-weight: 400; font-size: 2rem;">01. Smoked Makhani Sphere</h2>
             </div>
         </div>
 
         <div class="dish-card" onclick="openRecipe('biryani')">
             <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1200">
             <div style="padding: 40px; text-align: center;">
-                <h2 style="font-weight: 400; font-size: 2rem;">02. Deconstructed Hyderabadi Dum Biryani</h2>
-                <p style="color: var(--spice); letter-spacing: 2px; font-size: 0.8rem; margin-top: 15px;">EXPLORE 15-STEP TECHNICAL DATA</p>
+                <h2 style="font-weight: 400; font-size: 2rem;">02. Deconstructed Dum Biryani</h2>
+            </div>
+        </div>
+
+        <div class="dish-card" onclick="openRecipe('rabri')">
+            <img src="https://images.unsplash.com/photo-1589113103503-49653d89bc45?w=1200">
+            <div style="padding: 40px; text-align: center;">
+                <h2 style="font-weight: 400; font-size: 2rem;">03. Cryogenic Saffron Rabri Cloud</h2>
             </div>
         </div>
     </div>
@@ -95,29 +97,42 @@
 
         const recipes = {
             makhani: {
-                title: "Execution Data: Makhani Sphere",
+                title: "Execution: Makhani Sphere",
                 steps: [
-                    "Select malai paneer; cut into 30mm cubes with a precision blade.", "Infuse 100ml milk with Kashmiri saffron for 30 minutes.",
-                    "Vacuum-seal paneer with infusion to force flavor into the core.", "Sous-vide paneer at 65°C for 20 minutes for a butter-soft texture.",
-                    "Roast Roma tomatoes until skins char and natural sugars caramelize.", "Blend roasted tomatoes and ginger-garlic; strain through a chinois.",
-                    "Emulsify sauce with cold unsalted butter for a high-gloss finish.", "Infuse Hickory smoke into the sauce using a handheld smoker.",
-                    "Add 2g Soy Lecithin to ensure high-stability makhani foaming.", "Charge siphon with two N2O cartridges and maintain at 50°C.",
-                    "Dehydrate black garlic and cumin to create a 'Coal Crumb'.", "Flash-sear one side of the paneer with a kitchen torch for aroma.",
-                    "Position the paneer cube centrally on a chilled stone ceramic plate.", "Gently express the Smoked Makhani Foam around the base.",
-                    "Finish with Coal Crumb and micro-greens. Serve immediately."
+                    "Select malai paneer; cut into 30mm cubes.", "Infuse 100ml milk with saffron for 30 mins.",
+                    "Vacuum-seal paneer with infusion.", "Sous-vide at 65°C for 20 mins.",
+                    "Roast Roma tomatoes until charred.", "Blend and strain through a chinois.",
+                    "Emulsify sauce with cold butter.", "Infuse Hickory smoke for 5 mins.",
+                    "Add 2g Soy Lecithin for stability.", "Charge siphon with N2O cartridges.",
+                    "Create Coal Crumb with black garlic.", "Flash-sear paneer with torch.",
+                    "Plate centrally on stone ceramic.", "Express Smoked Makhani Foam.",
+                    "Garnish with micro-greens and serve."
                 ]
             },
             biryani: {
-                title: "Execution Data: Modern Hyderabadi Dum",
+                title: "Execution: Modern Dum Biryani",
                 steps: [
-                    "Select long-grain Basmati; aged minimum 2 years for starch stability.", "Soak rice in pH-balanced water (pH 7.0) for exactly 45 minutes.",
-                    "Prepare 'Yakhni' by slow-extracting protein essences with Shahi Jeera.", "Vacuum-marinate meat with organic curd and cold-pressed papaya enzyme.",
-                    "Dehydrate onions at 60°C for 12 hours to achieve perfect 'Birista' crunch.", "Par-boil rice with green cardamom and bay leaf until 70% gelatinized.",
-                    "Create a saffron-infused 'Air' using an aquarium pump and lecithin.", "Layer rice and meat in a heavy-bottomed copper 'Deg' with precision.",
-                    "Seal the lid with traditional dough to maintain internal atmospheric pressure.", "Slow-cook (Dum) over a charcoal base for exactly 42 minutes.",
-                    "Extract pure Rose water essence using a lab-grade steam distiller.", "Allow the Biryani to rest for 15 minutes to equalize moisture levels.",
-                    "Carefully separate grains using a flat professional plating spatula.", "Plate the rice in a spiral formation with the tender protein at the center.",
-                    "Top with Saffron Air and gold-leaf Birista. Serve with smoked Raita."
+                    "Select long-grain Basmati aged 2 years.", "Soak in pH-balanced water (pH 7.0).",
+                    "Extract protein essence for 'Yakhni'.", "Vacuum-marinate meat with papaya enzyme.",
+                    "Dehydrate onions at 60°C for 12 hours.", "Par-boil rice until 70% gelatinized.",
+                    "Create saffron 'Air' using a pump.", "Layer rice and meat in a copper 'Deg'.",
+                    "Seal lid with dough for internal pressure.", "Slow-cook (Dum) for 42 minutes.",
+                    "Extract Rose essence via steam distiller.", "Rest Biryani for 15 mins for moisture.",
+                    "Separate grains with a plating spatula.", "Plate rice in a spiral formation.",
+                    "Top with Saffron Air and serve."
+                ]
+            },
+            rabri: {
+                title: "Execution: Cryogenic Rabri Cloud",
+                steps: [
+                    "Reduce full-fat milk by 70% over low heat.", "Infuse with Grade-A Saffron and cardamom.",
+                    "Sweeten with organic palm jaggery.", "Chill the rabri base to exactly 4°C.",
+                    "Prepare Liquid Nitrogen (LN2) in a Dewar.", "Pour rabri base into a stand mixer.",
+                    "Slowly add LN2 while whisking at high speed.", "Capture the frozen 'clouds' as they form.",
+                    "Prepare a base of pistachio 'soil'.", "Add drops of rosewater pearls via pipette.",
+                    "Place the frozen cloud atop the soil.", "Dust with edible 24k gold leaf.",
+                    "Add a sprig of silver-dusted mint.", "Serve immediately while vapor is visible.",
+                    "Advise guest to eat within 30 seconds."
                 ]
             }
         };
@@ -126,13 +141,11 @@
             document.getElementById('gallery-page').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'block';
             window.scrollTo(0,0);
-            
             const selected = recipes[key];
             document.getElementById('recipe-title').innerText = selected.title;
-            
             let html = "";
             selected.steps.forEach((s, i) => {
-                html += `<div class="step-row"><div class="step-num">${i+1 < 10 ? '0'+(i+1) : i+1}</div><div style="line-height:1.8;">${s}</div></div>`;
+                html += `<div class="step-row"><div class="step-num">${i+1 < 10 ? '0'+(i+1) : i+1}</div><div>${s}</div></div>`;
             });
             document.getElementById('steps-content').innerHTML = html;
         }
