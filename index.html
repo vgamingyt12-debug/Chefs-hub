@@ -7,124 +7,90 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
         
-        :root { 
-            --bg-warm: #fdfaf5; 
-            --spice: #b35900; 
-            --text-deep: #2c1a0a; 
-            --accent: #d4a373; 
-            --glass: rgba(255, 255, 255, 0.9);
-        }
-        
-        body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
+        :root { --bg-warm: #fdfaf5; --spice: #b35900; --text-deep: #2c1a0a; --accent: #d4a373; --glass: rgba(255, 255, 255, 0.95); }
+        body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; overflow-x: hidden; }
 
-        /* VIDEO BACKGROUND - THE LIVE LAB */
-        .video-bg-container {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
-        }
-        .video-bg-container iframe {
-            width: 100vw; height: 56.25vw; /* 16:9 Aspect Ratio */
-            min-height: 100vh; min-width: 177.77vh;
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            pointer-events: none; opacity: 0.6;
-        }
+        /* FIXED VIDEO BACKGROUND */
+        .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; background: #000; }
+        .video-container video { min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.5; object-fit: cover; }
 
-        #site-header {
-            padding: 15px 5%; display: none; align-items: center; justify-content: space-between;
-            background: var(--glass); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 900; border-bottom: 1px solid #f0e6d6;
-        }
+        #site-header { padding: 15px 5%; display: none; align-items: center; justify-content: space-between; background: var(--glass); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 900; border-bottom: 1px solid #f0e6d6; }
 
         /* WELCOME SCREEN */
-        #welcome-screen { 
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
-            position: relative; color: #fff9f0; background: rgba(0,0,0,0.4);
-        }
-        .chef-title { font-size: 4rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; text-transform: uppercase; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .signature { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--accent); margin-top: 15px; }
+        #welcome-screen { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff9f0; }
+        .chef-title { font-size: 3.5rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; text-transform: uppercase; }
+        .signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--accent); margin-top: 10px; }
 
-        /* GALLERY & RECIPE */
+        /* GALLERY & CARDS */
         #gallery-page, #recipe-page { display: none; padding: 60px 5%; max-width: 1000px; margin: auto; }
-        .dish-card { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.05); cursor: pointer; transition: 0.5s; margin-bottom: 60px; border-bottom: 1px solid #eee; }
-        .dish-card:hover { transform: translateY(-10px); border-bottom: 5px solid var(--spice); }
-        .dish-card img { width: 100%; height: 500px; object-fit: cover; }
-
-        /* INGREDIENT LAB GALLERY */
-        .lab-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 30px 0; }
-        .lab-item { text-align: center; padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 8px; }
-        .lab-item img { width: 100%; height: 100px; object-fit: contain; margin-bottom: 10px; filter: sepia(0.5); }
-        .lab-item p { font-size: 0.7rem; font-weight: bold; text-transform: uppercase; margin: 0; color: var(--spice); }
+        .dish-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); cursor: pointer; transition: 0.4s; margin-bottom: 50px; }
+        .dish-card:hover { transform: translateY(-10px); }
+        .dish-video { width: 100%; height: 450px; object-fit: cover; } /* 3-SEC VIDEO LOOP STYLE */
 
         /* TECH DASHBOARD */
-        .tech-specs { 
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; 
-            background: #2c1a0a; color: #f5cc91; padding: 25px; border-radius: 8px; margin: 20px 0;
-            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-align: center;
-        }
-        .spec-item span { display: block; font-weight: bold; font-size: 1.2rem; color: #fff; margin-top: 5px; }
+        .tech-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #2c1a0a; color: #f5cc91; padding: 25px; border-radius: 8px; margin: 20px 0; text-align: center; font-family: 'Montserrat'; font-size: 0.7rem; }
+        .spec-item span { display: block; font-weight: bold; font-size: 1.1rem; color: #fff; margin-top: 5px; }
 
-        .btn-spice { padding: 18px 45px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; transition: 0.3s; }
+        .btn-spice { padding: 18px 45px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; transition: 0.3s; }
         .btn-spice:hover { background: #8a4500; }
-
+        
         .contact-footer { text-align: center; padding: 80px; background: #fffcf8; border-top: 1px solid #eee; margin-top: 50px; }
     </style>
 </head>
 <body>
 
     <header id="site-header">
-        <div style="font-family: 'Montserrat'; font-size: 0.7rem; letter-spacing: 2px;">B. VISHNUDHAR REDDY | <strong>INNOVATION LAB</strong></div>
-        <button class="btn-spice" style="padding: 10px 20px; font-size: 0.7rem;" onclick="scrollToContact()">Contact</button>
+        <div style="font-family: 'Montserrat'; font-size: 0.7rem; letter-spacing: 2px;">B. VISHNUDHAR REDDY | <strong>LABS</strong></div>
+        <button class="btn-spice" style="padding: 10px 20px; font-size: 0.6rem;" onclick="scrollToContact()">Contact</button>
     </header>
 
     <div id="welcome-screen">
-        <div class="video-bg-container">
-            <iframe src="https://www.youtube.com/embed/fD_u95CjYyA?autoplay=1&mute=1&controls=0&loop=1&playlist=fD_u95CjYyA&showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-chef-preparing-a-dish-in-a-professional-kitchen-8581-large.mp4" type="video/mp4">
+            </video>
         </div>
         <h1 class="chef-title">Chefs-Hub</h1>
-        <div style="max-width: 650px; font-size: 1.2rem; line-height: 1.8; font-style: italic; margin: 25px 0; color: #eee; text-shadow: 1px 1px 5px #000;">
-            "Engineering the future of taste through MPC precision and Indian heritage."
-        </div>
         <div class="signature">B. Vishnudhar Reddy</div>
-        <button class="btn-spice" style="margin-top: 40px;" onclick="enterSite()">Access Laboratory</button>
+        <button class="btn-spice" style="margin-top: 30px;" onclick="enterSite()">Enter Laboratory</button>
     </div>
 
     <div id="gallery-page">
-        <h2 style="text-align:center; letter-spacing: 6px; font-weight: 300; margin-bottom: 60px;">COLLECTION 2026</h2>
+        <h2 style="text-align:center; letter-spacing: 5px; font-weight: 300; margin-bottom: 50px;">COLLECTION 2026</h2>
         
         <div class="dish-card" onclick="openRecipe('makhani')">
-            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000">
-            <div style="padding: 30px; text-align: center;">
-                <h2 style="font-weight: 400; font-size: 1.8rem;">01. Smoked Makhani Sphere</h2>
-                <p style="color: var(--spice); font-size: 0.7rem; letter-spacing: 3px; font-weight: bold;">TECHNICAL ANALYSIS AVAILABLE</p>
-            </div>
+            <video class="dish-video" autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-flames-of-a-stove-in-the-kitchen-of-a-restaurant-41275-large.mp4" type="video/mp4">
+            </video>
+            <div style="padding: 30px; text-align: center;"><h2>01. Smoked Makhani Sphere</h2></div>
         </div>
 
         <div class="dish-card" onclick="openRecipe('biryani')">
-            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000">
-            <div style="padding: 30px; text-align: center;">
-                <h2 style="font-weight: 400; font-size: 1.8rem;">02. Modern Dum Biryani</h2>
-                <p style="color: var(--spice); font-size: 0.7rem; letter-spacing: 3px; font-weight: bold;">ATMOSPHERIC DATA AVAILABLE</p>
-            </div>
+            <video class="dish-video" autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-steam-rising-from-a-pot-of-boiling-water-41273-large.mp4" type="video/mp4">
+            </video>
+            <div style="padding: 30px; text-align: center;"><h2>02. Modern Dum Biryani</h2></div>
+        </div>
+
+        <div class="dish-card" onclick="openRecipe('rabri')">
+            <video class="dish-video" autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-milk-into-a-bowl-in-slow-motion-41277-large.mp4" type="video/mp4">
+            </video>
+            <div style="padding: 30px; text-align: center;"><h2>03. Cryogenic Rabri Cloud</h2></div>
         </div>
 
         <div id="contact-area" class="contact-footer">
-            <h3 style="font-weight: 300; letter-spacing: 3px;">DIRECT COMMUNICATION</h3>
-            <p style="font-size: 1.1rem; color: var(--spice); font-weight: bold; margin: 20px 0;">vishnudharreddybalam@gmail.com</p>
-            <button class="btn-spice" onclick="window.location.href='mailto:vishnudharreddybalam@gmail.com'">Initialize Connection</button>
-            <p style="margin-top: 30px; font-size: 0.7rem; color: #aaa;">&copy; 2026 B. Vishnudhar Reddy | Anantapur, India</p>
+            <h3 style="font-weight: 300; letter-spacing: 2px;">FOUNDER COLLABORATION</h3>
+            <p style="font-size: 1.1rem; color: var(--spice); font-weight: bold;">vishnudharreddybalam@gmail.com</p>
+            <button class="btn-spice" style="margin-top: 20px;" onclick="window.location.href='mailto:vishnudharreddybalam@gmail.com'">Email Founder</button>
         </div>
     </div>
 
     <div id="recipe-page">
-        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold; letter-spacing: 1px;">← BACK TO LAB</p>
-        <h1 id="recipe-title" style="color:var(--spice); font-size: 2.2rem; font-weight: 300; margin-bottom: 5px;"></h1>
-        <p id="recipe-subtitle" style="color: #888; margin-top: 0; font-style: italic;"></p>
-        
+        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold;">← BACK TO LAB</p>
+        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; font-size: 2.2rem;"></h1>
         <div id="recipe-meta"></div>
-
-        <h4 style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-top: 40px; border-left: 3px solid var(--spice); padding-left: 10px;">Ingredient & Tool Lab</h4>
-        <div id="lab-content" class="lab-gallery"></div>
-        
-        <h4 style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-top: 40px; border-left: 3px solid var(--spice); padding-left: 10px;">Execution Steps</h4>
-        <div id="steps-content"></div>
+        <div id="steps-content" style="margin-top: 30px;"></div>
     </div>
 
     <script>
@@ -142,18 +108,19 @@
 
         const recipes = {
             makhani: {
-                title: "Smoked Makhani Sphere",
-                sub: "Advanced Molecular Suspension Analysis",
-                temp: "65.2°C", pressure: "99.1% VAC", ph: "6.85 pH",
-                lab: ["Siphon", "Wood Smoke", "Digital Scale", "Precision Tweezers"],
-                steps: ["Precision cut Malai Paneer (30mm cubes).", "Analyze Saffron milk infusion quality.", "Seal at maximum vacuum pressure.", "Sustain Sous-vide bath at 65°C.", "Oxidize tomatoes via roasting; strain.", "Introduce cold lipids (butter) for emulsion.", "Infuse Hickory aromatics for 300s.", "Stabilize foam with Soy Lecithin.", "Charge N2O pressure canisters.", "Flash-sear surface for tandoori notes.", "Calibrate plating on stone ceramic.", "Execute foam suspension.", "Apply Coal Crumb garnish."]
+                title: "Execution: Makhani Sphere",
+                temp: "65.2°C", pressure: "99% VAC", ph: "6.8 pH",
+                steps: ["Precision cut paneer cubes.", "Infuse saffron milk essence.", "Vacuum-seal for flavor force.", "Sous-vide at 65.2°C.", "Roast Roma tomatoes.", "Chinois strain for purity.", "Emulsify with cold butter.", "Hickory smoke infusion.", "Stabilize with Soy Lecithin.", "Charge N2O siphon.", "Torch-sear for aroma.", "Plate on chilled stone.", "Express makhani foam.", "Garnish with Coal Crumb.", "Serve at optimal temp."]
             },
             biryani: {
-                title: "Modern Dum Biryani",
-                sub: "Atmospheric Pressure & Humidity Study",
-                temp: "104.8°C", pressure: "1.23 ATM", ph: "7.01 pH",
-                lab: ["pH Meter", "Lab Still", "Dehydrator", "Copper Vessel"],
-                steps: ["Selection of aged Basmati grains.", "Calibrate water pH to 7.0 for soaking.", "Isolate protein essences for Yakhni.", "Enzymatic tenderization via papaya.", "Dehydrate alliums for structural crunch.", "Gelatinize rice starch to 70% level.", "Formulate Saffron Air suspension.", "Layer components in Copper Deg.", "Hermal sealing for pressure retention.", "Constant Dum heat for 42 minutes.", "Steam distill Rose aromatics.", "Stabilize internal moisture (15m).", "Plate with spiral grain orientation."]
+                title: "Execution: Modern Dum Biryani",
+                temp: "104.8°C", pressure: "1.2 ATM", ph: "7.0 pH",
+                steps: ["Age Basmati grain 2 years.", "Calibrate water pH to 7.0.", "Isolate Yakhni protein.", "Vacuum marination process.", "Dehydrate allium crunch.", "Starch gelatinization (70%).", "Saffron 'Air' suspension.", "Layer in Copper vessel.", "Dough-seal for pressure.", "Dum-cook 42 minutes.", "Distill Rose aromatics.", "Equalize moisture levels.", "Spiral grain orientation.", "Garnish with Saffron Air.", "Serve with Smoked Raita."]
+            },
+            rabri: {
+                title: "Execution: Cryogenic Rabri Cloud",
+                temp: "-196°C", pressure: "1.0 ATM", ph: "6.5 pH",
+                steps: ["Reduce milk volume by 70%.", "Infuse Grade-A Saffron.", "Sweeten with palm jaggery.", "Chill base to exactly 4°C.", "Prepare LN2 Dewar.", "Whisk base at high RPM.", "Introduce Liquid Nitrogen.", "Capture frozen clouds.", "Prepare pistachio soil.", "Add rosewater pearls.", "Suspend cloud on soil.", "Dust with 24k Gold leaf.", "Add silver mint sprig.", "Serve with vapor visible.", "Consume within 30 seconds."]
             }
         };
 
@@ -161,38 +128,19 @@
             document.getElementById('gallery-page').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'block';
             const r = recipes[key];
-            
             document.getElementById('recipe-title').innerText = r.title;
-            document.getElementById('recipe-subtitle').innerText = r.sub;
-            
-            // Step 1: Technical Dashboard
             document.getElementById('recipe-meta').innerHTML = `
                 <div class="tech-specs">
-                    <div class="spec-item">CORE TEMPERATURE<span>${r.temp}</span></div>
-                    <div class="spec-item">PROCESS PRESSURE<span>${r.pressure}</span></div>
-                    <div class="spec-item">CHEMICAL BALANCE<span>${r.ph}</span></div>
-                </div>
-            `;
-
-            // Step 3: Ingredient/Tool Lab
-            let labHtml = "";
-            r.lab.forEach(tool => {
-                labHtml += `<div class="lab-item"><img src="https://cdn-icons-png.flaticon.com/512/3062/3062331.png"><p>${tool}</p></div>`;
-            });
-            document.getElementById('lab-content').innerHTML = labHtml;
-
-            // Execution Steps
+                    <div class="spec-item">TEMP<span>${r.temp}</span></div>
+                    <div class="spec-item">PRESSURE<span>${r.pressure}</span></div>
+                    <div class="spec-item">pH LEVEL<span>${r.ph}</span></div>
+                </div>`;
             let h = "";
-            r.steps.forEach((s, i) => { 
-                h += `<div style="display:flex; gap:20px; padding:18px 0; border-bottom:1px solid #f0f0f0;">
-                        <div style="color:var(--spice); font-weight:bold; font-family:Montserrat; font-size:0.8rem;">[SCN-${i+1}]</div>
-                        <div style="font-size:1.05rem;">${s}</div>
-                      </div>`; 
-            });
+            r.steps.forEach((s, i) => { h += `<div style="display:flex; gap:20px; padding:15px 0; border-bottom:1px solid #eee;"><div style="color:var(--spice); font-weight:bold;">${i+1}</div><div>${s}</div></div>`; });
             document.getElementById('steps-content').innerHTML = h;
             window.scrollTo(0,0);
         }
     </script>
 </body>
-    </html>
-    
+            </html>
+                
