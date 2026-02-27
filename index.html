@@ -3,105 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chefs-Hub | Elite Masterclass</title>
+    <title>Chefs-Hub | B.Vishnudhar Reddy</title>
     <style>
-        :root { --bg: #fdfcf9; --accent: #c5a059; --text: #222; }
-        body { background: var(--bg); color: var(--text); font-family: 'Garamond', serif; margin: 0; overflow-x: hidden; }
-        
-        #welcome-screen {
-            height: 100vh; display: flex; flex-direction: column; 
-            align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), 
-                        url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200');
-            background-size: cover; background-position: center;
+        :root { 
+            --bg-warm: #fdfaf5; 
+            --spice: #b35900; /* Rich Saffron/Cinnamon tone */
+            --text-deep: #2c1a0a; 
+            --accent: #d4a373; 
         }
-        .chef-welcome { font-size: 3.5rem; letter-spacing: 10px; text-transform: uppercase; margin: 0; font-weight: 300; }
-        .founder-msg { max-width: 600px; font-style: italic; color: #555; margin-top: 20px; line-height: 1.6; font-size: 1.1rem; }
         
-        .btn-start { 
-            margin-top: 40px; padding: 15px 40px; border: 1px solid var(--accent); 
-            background: var(--accent); color: white; cursor: pointer;
-            text-transform: uppercase; letter-spacing: 2px; transition: 0.4s;
-        }
-        .btn-start:hover { background: #b08d4a; }
+        body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; }
 
-        #gallery-page, #recipe-page { display: none; padding: 60px 5%; }
+        /* 1. SECURITY LAYER */
+        #security-layer { 
+            height: 100vh; display: flex; flex-direction: column; align-items: center; 
+            justify-content: center; background: #fff; position: fixed; width: 100%; z-index: 1000; 
+        }
+        .pin-box { border: 2px solid var(--spice); padding: 30px; text-align: center; border-radius: 12px; background: #fff9f0; }
+        input { width: 100px; padding: 12px; margin: 20px 0; border: 1px solid var(--accent); text-align: center; font-size: 1.5rem; border-radius: 8px; }
+
+        /* 2. AUTHENTIC SOUL WELCOME SCREEN */
+        #welcome-screen { 
+            height: 100vh; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
+            background: linear-gradient(rgba(44, 26, 10, 0.7), rgba(44, 26, 10, 0.7)), 
+                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200'); /* Warm Indian Spices */
+            background-size: cover; background-position: center; color: #fff9f0;
+        }
+        .chef-title { font-size: 4rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; }
+        .founder-quote { max-width: 650px; font-size: 1.2rem; line-height: 1.8; font-style: italic; margin: 30px 0; padding: 0 20px; color: #eee; }
+        
+        /* 3. GALLERY & RECIPE INTERFACE */
+        #gallery-page, #recipe-page { display: none; padding: 80px 5%; max-width: 1000px; margin: auto; }
         .dish-card { 
-            max-width: 700px; margin: 40px auto; cursor: pointer; 
-            transition: 0.5s; border: 1px solid #eee; background: white;
+            background: white; border-radius: 4px; overflow: hidden; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); cursor: pointer; transition: 0.4s;
+            border-bottom: 4px solid var(--spice);
         }
-        .dish-card img { width: 100%; height: 450px; object-fit: cover; }
-        .card-info { padding: 30px; text-align: center; }
-        .dish-card:hover { transform: scale(1.01); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .dish-card:hover { transform: translateY(-10px); }
+        .dish-card img { width: 100%; height: 500px; object-fit: cover; }
+        
+        .step-row { display: flex; gap: 30px; padding: 25px 0; border-bottom: 1px solid #f0e6d6; }
+        .step-num { color: var(--spice); font-weight: bold; font-size: 1.2rem; min-width: 40px; font-family: sans-serif; }
 
-        .step-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; }
-        .step-num { color: var(--accent); font-weight: bold; min-width: 40px; font-family: sans-serif; }
-        .back-btn { cursor: pointer; color: var(--accent); margin-bottom: 40px; display: inline-block; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; }
+        /* BUTTONS */
+        .btn-spice { 
+            padding: 18px 45px; background: var(--spice); color: white; border: none; 
+            cursor: pointer; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem;
+            transition: 0.3s; border-radius: 2px;
+        }
+        .btn-spice:hover { background: #8a4500; letter-spacing: 5px; }
     </style>
 </head>
 <body>
 
+    <div id="security-layer">
+        <div class="pin-box">
+            <h2 style="letter-spacing: 4px; font-weight: 300; color: var(--spice);">IDENTITY VERIFICATION</h2>
+            <p style="color: #666; font-size: 0.8rem;">VISHNUDHAR REDDY | CULINARY LABS</p>
+            <input type="password" id="pinInput" maxlength="4" placeholder="PIN">
+            <br>
+            <button class="btn-spice" onclick="verifyPin()">Unlock Site</button>
+            <p id="error" style="color:red; display:none; font-size: 0.8rem; margin-top:15px;">Invalid Access Key</p>
+        </div>
+    </div>
+
     <div id="welcome-screen">
-        <h1 class="chef-welcome">Welcome, Chef</h1>
-        <div class="founder-msg">
+        <h1 class="chef-title">Chefs-Hub</h1>
+        <div class="founder-quote">
             "Hello, I am B.Vishnudhar Reddy. At Chefs-Hub, we don't just cook—we innovate. Combining the precision of MPC logic with the soul of Indian flavors, I invite you to explore the future of gastronomy."
         </div>
-        <button class="btn-start" onclick="showGallery()">Explore Library</button>
+        <button class="btn-spice" onclick="goToGallery()">Enter the Library</button>
     </div>
 
     <div id="gallery-page">
-        <div style="text-align: center; margin-bottom: 60px;">
-            <h1 style="font-weight: 300; letter-spacing: 5px; text-transform: uppercase;">The 2026 Collection</h1>
+        <div style="text-align: center; margin-bottom: 80px;">
+            <h2 style="letter-spacing: 8px; font-weight: 300; text-transform: uppercase; color: var(--spice);">The 2026 Technical Series</h2>
+            <p style="color: #888;">Modern Indian Intelligence by B.Vishnudhar Reddy</p>
         </div>
-
-        <div class="dish-card" onclick="showRecipe('makhani')">
-            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000">
-            <div class="card-info">
-                <span style="color: var(--accent); letter-spacing: 2px; font-size: 0.8rem;">MODERN INDIAN #01</span>
-                <h2 style="font-weight: 400; margin: 10px 0;">Smoked Makhani Sphere & Saffron Paneer</h2>
-            </div>
-        </div>
-
-        <div class="dish-card" onclick="showRecipe('rabri')">
-            <img src="https://images.unsplash.com/photo-1589113103503-49653d89bc45?w=1000">
-            <div class="card-info">
-                <span style="color: var(--accent); letter-spacing: 2px; font-size: 0.8rem;">MODERN INDIAN #02</span>
-                <h2 style="font-weight: 400; margin: 10px 0;">Cryogenic Saffron Rabri Cloud</h2>
+        
+        <div class="dish-card" onclick="openRecipe()">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200">
+            <div style="padding: 40px; text-align: center;">
+                <h2 style="font-weight: 400; font-size: 2rem;">Smoked Makhani Sphere & Saffron Paneer</h2>
+                <p style="color: var(--spice); letter-spacing: 2px; font-size: 0.8rem; margin-top: 15px;">EXPLORE 15-STEP TECHNICAL DATA</p>
             </div>
         </div>
     </div>
 
     <div id="recipe-page">
-        <span class="back-btn" onclick="showGallery()">← Back to Collection</span>
-        <div id="recipe-content"></div>
+        <p onclick="goToGallery()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 40px;">← BACK TO COLLECTION</p>
+        <h1 style="color:var(--spice); font-weight: 300; font-size: 2.5rem; border-bottom: 1px solid var(--accent); padding-bottom: 20px;">Execution Data: Makhani Sphere</h1>
+        <div id="steps-content"></div>
     </div>
 
     <script>
-        function showGallery() {
+        function verifyPin() {
+            if(document.getElementById('pinInput').value === "1234") {
+                document.getElementById('security-layer').style.display = 'none';
+                document.getElementById('welcome-screen').style.display = 'flex';
+            } else { document.getElementById('error').style.display = 'block'; }
+        }
+
+        function goToGallery() {
             document.getElementById('welcome-screen').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'none';
             document.getElementById('gallery-page').style.display = 'block';
             window.scrollTo(0,0);
         }
 
-        function showRecipe(dishId) {
+        function openRecipe() {
             document.getElementById('gallery-page').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'block';
             window.scrollTo(0,0);
-
-            let content = "";
-            if(dishId === 'makhani') {
-                content = `<h1>01. Smoked Makhani Sphere</h1><div class="step-row"><div class="step-num">01</div><div>Cut malai paneer into 30mm cubes.</div></div>` + " (Remaining 14 steps included in code)"; 
-                // Full 15 steps are preserved in the actual code logic
-            } else if(dishId === 'rabri') {
-                content = `<h1>02. Cryogenic Saffron Rabri Cloud</h1><h3>Professional 15-Step Execution</h3>`;
-                for(let i=1; i<=15; i++) {
-                    content += `<div class="step-row"><div class="step-num">${i < 10 ? '0'+i : i}</div><div>Advanced Rabri step ${i} using precision cooling.</div></div>`;
-                }
-            }
-            document.getElementById('recipe-content').innerHTML = content;
+            let steps = "";
+            let data = [
+                "Select malai paneer; cut into 30mm cubes with a precision blade.", "Infuse 100ml milk with Kashmiri saffron for 30 minutes.",
+                "Vacuum-seal paneer with infusion to force flavor into the core.", "Sous-vide paneer at 65°C for 20 minutes for a butter-soft texture.",
+                "Roast Roma tomatoes until skins char and natural sugars caramelize.", "Blend roasted tomatoes and ginger-garlic; strain through a chinois.",
+                "Emulsify sauce with cold unsalted butter for a high-gloss finish.", "Infuse Hickory smoke into the sauce using a handheld smoker.",
+                "Add 2g Soy Lecithin to ensure high-stability makhani foaming.", "Charge siphon with two N2O cartridges and maintain at 50°C.",
+                "Dehydrate black garlic and cumin to create a 'Coal Crumb'.", "Flash-sear one side of the paneer with a kitchen torch for aroma.",
+                "Position the paneer cube centrally on a chilled stone ceramic plate.", "Gently express the Smoked Makhani Foam around the base.",
+                "Finish with Coal Crumb and micro-greens. Serve immediately."
+            ];
+            data.forEach((s, i) => {
+                steps += `<div class="step-row"><div class="step-num">${i+1 < 10 ? '0'+(i+1) : i+1}</div><div style="line-height:1.8;">${s}</div></div>`;
+            });
+            document.getElementById('steps-content').innerHTML = steps;
         }
     </script>
 </body>
-        </html>
-        
+    </html>
+    
