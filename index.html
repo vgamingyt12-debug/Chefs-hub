@@ -14,6 +14,7 @@
         
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; }
 
+        /* 1. WELCOME SCREEN */
         #welcome-screen { 
             height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
             background: linear-gradient(rgba(44, 26, 10, 0.7), rgba(44, 26, 10, 0.7)), 
@@ -23,6 +24,7 @@
         .chef-title { font-size: 4rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; }
         .founder-quote { max-width: 650px; font-size: 1.2rem; line-height: 1.8; font-style: italic; margin: 30px 0; padding: 0 20px; color: #eee; }
         
+        /* 2. GALLERY & RECIPE INTERFACE */
         #gallery-page, #recipe-page { display: none; padding: 80px 5%; max-width: 1000px; margin: auto; }
         .dish-card { 
             background: white; border-radius: 4px; overflow: hidden; 
@@ -35,6 +37,10 @@
         .step-row { display: flex; gap: 30px; padding: 25px 0; border-bottom: 1px solid #f0e6d6; }
         .step-num { color: var(--spice); font-weight: bold; font-size: 1.2rem; min-width: 40px; font-family: sans-serif; }
 
+        /* CONTACT SECTION */
+        .contact-footer { margin-top: 100px; text-align: center; padding: 60px; border-top: 1px solid #eee; background: #fffcf8; }
+
+        /* BUTTONS */
         .btn-spice { 
             padding: 18px 45px; background: var(--spice); color: white; border: none; 
             cursor: pointer; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem;
@@ -79,6 +85,13 @@
                 <h2 style="font-weight: 400; font-size: 2rem;">03. Cryogenic Saffron Rabri Cloud</h2>
             </div>
         </div>
+
+        <div class="contact-footer">
+            <h3 style="letter-spacing: 3px; font-weight: 300;">COLLABORATE WITH THE FOUNDER</h3>
+            <p style="color: #777; margin-bottom: 30px;">For technical inquiries and culinary consulting.</p>
+            <button class="btn-spice" onclick="window.location.href='mailto:your-email@example.com'">Send Message</button>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: #999;">&copy; 2026 B.Vishnudhar Reddy | Chefs-Hub</p>
+        </div>
     </div>
 
     <div id="recipe-page">
@@ -118,19 +131,19 @@
                     "Create saffron 'Air' using a pump.", "Layer rice and meat in a copper 'Deg'.",
                     "Seal lid with dough for internal pressure.", "Slow-cook (Dum) for 42 minutes.",
                     "Extract Rose essence via steam distiller.", "Rest Biryani for 15 mins for moisture.",
-                    "Separate grains with a plating spatula.", "Plate rice in a spiral formation.",
+                    "Separate grains with a spatula.", "Plate rice in a spiral formation.",
                     "Top with Saffron Air and serve."
                 ]
             },
             rabri: {
                 title: "Execution: Cryogenic Rabri Cloud",
                 steps: [
-                    "Reduce full-fat milk by 70% over low heat.", "Infuse with Grade-A Saffron and cardamom.",
-                    "Sweeten with organic palm jaggery.", "Chill the rabri base to exactly 4°C.",
-                    "Prepare Liquid Nitrogen (LN2) in a Dewar.", "Pour rabri base into a stand mixer.",
-                    "Slowly add LN2 while whisking at high speed.", "Capture the frozen 'clouds' as they form.",
-                    "Prepare a base of pistachio 'soil'.", "Add drops of rosewater pearls via pipette.",
-                    "Place the frozen cloud atop the soil.", "Dust with edible 24k gold leaf.",
+                    "Reduce full-fat milk by 70%.", "Infuse with Saffron and cardamom.",
+                    "Sweeten with organic palm jaggery.", "Chill the rabri base to 4°C.",
+                    "Prepare Liquid Nitrogen (LN2) in a Dewar.", "Pour rabri base into a mixer.",
+                    "Slowly add LN2 while whisking.", "Capture the frozen 'clouds'.",
+                    "Prepare a base of pistachio 'soil'.", "Add drops of rosewater pearls.",
+                    "Place the frozen cloud atop soil.", "Dust with edible 24k gold leaf.",
                     "Add a sprig of silver-dusted mint.", "Serve immediately while vapor is visible.",
                     "Advise guest to eat within 30 seconds."
                 ]
@@ -152,4 +165,4 @@
     </script>
 </body>
     </html>
-    
+        
