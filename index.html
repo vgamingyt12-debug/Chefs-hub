@@ -7,32 +7,24 @@
     <style>
         :root { 
             --bg-warm: #fdfaf5; 
-            --spice: #b35900; /* Rich Saffron/Cinnamon tone */
+            --spice: #b35900; 
             --text-deep: #2c1a0a; 
             --accent: #d4a373; 
         }
         
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; }
 
-        /* 1. SECURITY LAYER */
-        #security-layer { 
-            height: 100vh; display: flex; flex-direction: column; align-items: center; 
-            justify-content: center; background: #fff; position: fixed; width: 100%; z-index: 1000; 
-        }
-        .pin-box { border: 2px solid var(--spice); padding: 30px; text-align: center; border-radius: 12px; background: #fff9f0; }
-        input { width: 100px; padding: 12px; margin: 20px 0; border: 1px solid var(--accent); text-align: center; font-size: 1.5rem; border-radius: 8px; }
-
-        /* 2. AUTHENTIC SOUL WELCOME SCREEN */
+        /* 1. AUTHENTIC SOUL WELCOME SCREEN (NOW THE DEFAULT START) */
         #welcome-screen { 
-            height: 100vh; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
             background: linear-gradient(rgba(44, 26, 10, 0.7), rgba(44, 26, 10, 0.7)), 
-                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200'); /* Warm Indian Spices */
+                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200');
             background-size: cover; background-position: center; color: #fff9f0;
         }
         .chef-title { font-size: 4rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; }
         .founder-quote { max-width: 650px; font-size: 1.2rem; line-height: 1.8; font-style: italic; margin: 30px 0; padding: 0 20px; color: #eee; }
         
-        /* 3. GALLERY & RECIPE INTERFACE */
+        /* 2. GALLERY & RECIPE INTERFACE */
         #gallery-page, #recipe-page { display: none; padding: 80px 5%; max-width: 1000px; margin: auto; }
         .dish-card { 
             background: white; border-radius: 4px; overflow: hidden; 
@@ -55,17 +47,6 @@
     </style>
 </head>
 <body>
-
-    <div id="security-layer">
-        <div class="pin-box">
-            <h2 style="letter-spacing: 4px; font-weight: 300; color: var(--spice);">IDENTITY VERIFICATION</h2>
-            <p style="color: #666; font-size: 0.8rem;">VISHNUDHAR REDDY | CULINARY LABS</p>
-            <input type="password" id="pinInput" maxlength="4" placeholder="PIN">
-            <br>
-            <button class="btn-spice" onclick="verifyPin()">Unlock Site</button>
-            <p id="error" style="color:red; display:none; font-size: 0.8rem; margin-top:15px;">Invalid Access Key</p>
-        </div>
-    </div>
 
     <div id="welcome-screen">
         <h1 class="chef-title">Chefs-Hub</h1>
@@ -97,13 +78,7 @@
     </div>
 
     <script>
-        function verifyPin() {
-            if(document.getElementById('pinInput').value === "1234") {
-                document.getElementById('security-layer').style.display = 'none';
-                document.getElementById('welcome-screen').style.display = 'flex';
-            } else { document.getElementById('error').style.display = 'block'; }
-        }
-
+        // Directly showing the welcome screen on load now
         function goToGallery() {
             document.getElementById('welcome-screen').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'none';
@@ -133,5 +108,5 @@
         }
     </script>
 </body>
-    </html>
-    
+                </html>
+            
