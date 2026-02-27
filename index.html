@@ -14,7 +14,7 @@
         
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; }
 
-        /* 1. AUTHENTIC SOUL WELCOME SCREEN (NOW THE DEFAULT START) */
+        /* 1. WELCOME SCREEN */
         #welcome-screen { 
             height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
             background: linear-gradient(rgba(44, 26, 10, 0.7), rgba(44, 26, 10, 0.7)), 
@@ -29,7 +29,7 @@
         .dish-card { 
             background: white; border-radius: 4px; overflow: hidden; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.05); cursor: pointer; transition: 0.4s;
-            border-bottom: 4px solid var(--spice);
+            border-bottom: 4px solid var(--spice); margin-bottom: 50px;
         }
         .dish-card:hover { transform: translateY(-10px); }
         .dish-card img { width: 100%; height: 500px; object-fit: cover; }
@@ -62,10 +62,18 @@
             <p style="color: #888;">Modern Indian Intelligence by B.Vishnudhar Reddy</p>
         </div>
         
-        <div class="dish-card" onclick="openRecipe()">
+        <div class="dish-card" onclick="openRecipe('makhani')">
             <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200">
             <div style="padding: 40px; text-align: center;">
-                <h2 style="font-weight: 400; font-size: 2rem;">Smoked Makhani Sphere & Saffron Paneer</h2>
+                <h2 style="font-weight: 400; font-size: 2rem;">01. Smoked Makhani Sphere & Saffron Paneer</h2>
+                <p style="color: var(--spice); letter-spacing: 2px; font-size: 0.8rem; margin-top: 15px;">EXPLORE 15-STEP TECHNICAL DATA</p>
+            </div>
+        </div>
+
+        <div class="dish-card" onclick="openRecipe('biryani')">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1200">
+            <div style="padding: 40px; text-align: center;">
+                <h2 style="font-weight: 400; font-size: 2rem;">02. Deconstructed Hyderabadi Dum Biryani</h2>
                 <p style="color: var(--spice); letter-spacing: 2px; font-size: 0.8rem; margin-top: 15px;">EXPLORE 15-STEP TECHNICAL DATA</p>
             </div>
         </div>
@@ -73,12 +81,11 @@
 
     <div id="recipe-page">
         <p onclick="goToGallery()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 40px;">← BACK TO COLLECTION</p>
-        <h1 style="color:var(--spice); font-weight: 300; font-size: 2.5rem; border-bottom: 1px solid var(--accent); padding-bottom: 20px;">Execution Data: Makhani Sphere</h1>
+        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; font-size: 2.5rem; border-bottom: 1px solid var(--accent); padding-bottom: 20px;"></h1>
         <div id="steps-content"></div>
     </div>
 
     <script>
-        // Directly showing the welcome screen on load now
         function goToGallery() {
             document.getElementById('welcome-screen').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'none';
@@ -86,27 +93,50 @@
             window.scrollTo(0,0);
         }
 
-        function openRecipe() {
+        const recipes = {
+            makhani: {
+                title: "Execution Data: Makhani Sphere",
+                steps: [
+                    "Select malai paneer; cut into 30mm cubes with a precision blade.", "Infuse 100ml milk with Kashmiri saffron for 30 minutes.",
+                    "Vacuum-seal paneer with infusion to force flavor into the core.", "Sous-vide paneer at 65°C for 20 minutes for a butter-soft texture.",
+                    "Roast Roma tomatoes until skins char and natural sugars caramelize.", "Blend roasted tomatoes and ginger-garlic; strain through a chinois.",
+                    "Emulsify sauce with cold unsalted butter for a high-gloss finish.", "Infuse Hickory smoke into the sauce using a handheld smoker.",
+                    "Add 2g Soy Lecithin to ensure high-stability makhani foaming.", "Charge siphon with two N2O cartridges and maintain at 50°C.",
+                    "Dehydrate black garlic and cumin to create a 'Coal Crumb'.", "Flash-sear one side of the paneer with a kitchen torch for aroma.",
+                    "Position the paneer cube centrally on a chilled stone ceramic plate.", "Gently express the Smoked Makhani Foam around the base.",
+                    "Finish with Coal Crumb and micro-greens. Serve immediately."
+                ]
+            },
+            biryani: {
+                title: "Execution Data: Modern Hyderabadi Dum",
+                steps: [
+                    "Select long-grain Basmati; aged minimum 2 years for starch stability.", "Soak rice in pH-balanced water (pH 7.0) for exactly 45 minutes.",
+                    "Prepare 'Yakhni' by slow-extracting protein essences with Shahi Jeera.", "Vacuum-marinate meat with organic curd and cold-pressed papaya enzyme.",
+                    "Dehydrate onions at 60°C for 12 hours to achieve perfect 'Birista' crunch.", "Par-boil rice with green cardamom and bay leaf until 70% gelatinized.",
+                    "Create a saffron-infused 'Air' using an aquarium pump and lecithin.", "Layer rice and meat in a heavy-bottomed copper 'Deg' with precision.",
+                    "Seal the lid with traditional dough to maintain internal atmospheric pressure.", "Slow-cook (Dum) over a charcoal base for exactly 42 minutes.",
+                    "Extract pure Rose water essence using a lab-grade steam distiller.", "Allow the Biryani to rest for 15 minutes to equalize moisture levels.",
+                    "Carefully separate grains using a flat professional plating spatula.", "Plate the rice in a spiral formation with the tender protein at the center.",
+                    "Top with Saffron Air and gold-leaf Birista. Serve with smoked Raita."
+                ]
+            }
+        };
+
+        function openRecipe(key) {
             document.getElementById('gallery-page').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'block';
             window.scrollTo(0,0);
-            let steps = "";
-            let data = [
-                "Select malai paneer; cut into 30mm cubes with a precision blade.", "Infuse 100ml milk with Kashmiri saffron for 30 minutes.",
-                "Vacuum-seal paneer with infusion to force flavor into the core.", "Sous-vide paneer at 65°C for 20 minutes for a butter-soft texture.",
-                "Roast Roma tomatoes until skins char and natural sugars caramelize.", "Blend roasted tomatoes and ginger-garlic; strain through a chinois.",
-                "Emulsify sauce with cold unsalted butter for a high-gloss finish.", "Infuse Hickory smoke into the sauce using a handheld smoker.",
-                "Add 2g Soy Lecithin to ensure high-stability makhani foaming.", "Charge siphon with two N2O cartridges and maintain at 50°C.",
-                "Dehydrate black garlic and cumin to create a 'Coal Crumb'.", "Flash-sear one side of the paneer with a kitchen torch for aroma.",
-                "Position the paneer cube centrally on a chilled stone ceramic plate.", "Gently express the Smoked Makhani Foam around the base.",
-                "Finish with Coal Crumb and micro-greens. Serve immediately."
-            ];
-            data.forEach((s, i) => {
-                steps += `<div class="step-row"><div class="step-num">${i+1 < 10 ? '0'+(i+1) : i+1}</div><div style="line-height:1.8;">${s}</div></div>`;
+            
+            const selected = recipes[key];
+            document.getElementById('recipe-title').innerText = selected.title;
+            
+            let html = "";
+            selected.steps.forEach((s, i) => {
+                html += `<div class="step-row"><div class="step-num">${i+1 < 10 ? '0'+(i+1) : i+1}</div><div style="line-height:1.8;">${s}</div></div>`;
             });
-            document.getElementById('steps-content').innerHTML = steps;
+            document.getElementById('steps-content').innerHTML = html;
         }
     </script>
 </body>
-                </html>
-            
+    </html>
+    
