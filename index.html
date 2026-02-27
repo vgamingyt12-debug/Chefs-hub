@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.Vishnudhar Reddy | Chefs-Hub Elite</title>
+    <title>B.Vishnudhar Reddy | Cool Cook Labs</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
         
@@ -16,7 +16,7 @@
         
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; overflow-x: hidden; }
 
-        /* CLEAN AESTHETIC WELCOME (No Video to break) */
+        /* WELCOME SCREEN */
         #welcome-screen { 
             height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
             background: linear-gradient(rgba(44, 26, 10, 0.8), rgba(44, 26, 10, 0.8)), 
@@ -25,6 +25,20 @@
         }
         .chef-title { font-size: 3.5rem; letter-spacing: 10px; text-transform: uppercase; margin: 0; color: #f5cc91; }
         .signature { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--accent); margin-top: 10px; }
+        
+        /* YOUR COOL COOK MESSAGE */
+        .cool-cook-tag { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 0.9rem; 
+            letter-spacing: 5px; 
+            text-transform: uppercase; 
+            background: var(--spice); 
+            padding: 8px 20px; 
+            margin-top: 20px;
+            border-radius: 50px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
 
         /* HEADER */
         #site-header { 
@@ -32,15 +46,14 @@
             background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 999; 
         }
 
-        /* CARDS - USING HIGH QUALITY IMAGES ONLY */
+        /* GALLERY & RECIPE */
         #gallery-page, #recipe-page { display: none; padding: 40px 5%; max-width: 900px; margin: auto; }
         .dish-card { 
             background: white; border-radius: 12px; overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; margin-bottom: 40px; 
         }
         .dish-card img { width: 100%; height: 400px; object-fit: cover; border-bottom: 4px solid var(--spice); }
-        .dish-card:hover { transform: translateY(-5px); }
-
+        
         /* TECH DASHBOARD */
         .tech-specs { 
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; 
@@ -48,13 +61,7 @@
         }
         .spec-item span { display: block; font-weight: bold; font-size: 1.1rem; color: #fff; }
 
-        /* STEPS */
-        .step-row { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #eee; }
-        .step-num { color: var(--spice); font-weight: bold; min-width: 30px; font-family: sans-serif; }
-
-        .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .btn-spice:hover { background: #8a4500; }
-        
+        .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
         .contact-footer { text-align: center; padding: 60px; background: #fffcf8; border-top: 1px solid #eee; margin-top: 40px; }
     </style>
 </head>
@@ -68,8 +75,9 @@
     <div id="welcome-screen">
         <h1 class="chef-title">Chefs-Hub</h1>
         <div class="signature">B. Vishnudhar Reddy</div>
-        <p style="font-style: italic; color: #ccc; margin-bottom: 30px;">"Precision in MPC. Soul in Spices."</p>
-        <button class="btn-spice" onclick="enterSite()">Enter Laboratory</button>
+        <div class="cool-cook-tag">Cool Cook</div>
+        <p style="font-style: italic; color: #ccc; margin-top: 25px; max-width: 500px;">"Harnessing MPC precision to engineer the perfect Indian flavor profile."</p>
+        <button class="btn-spice" style="margin-top: 30px;" onclick="enterSite()">Enter Laboratory</button>
     </div>
 
     <div id="gallery-page">
@@ -93,14 +101,15 @@
         <div id="contact-area" class="contact-footer">
             <p style="color: var(--spice); font-weight: bold;">vishnudharreddybalam@gmail.com</p>
             <button class="btn-spice" onclick="window.location.href='mailto:vishnudharreddybalam@gmail.com'">Email Me</button>
+            <p style="margin-top: 20px; font-size: 0.7rem; color: #999;">© 2026 B. Vishnudhar Reddy</p>
         </div>
     </div>
 
     <div id="recipe-page">
-        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold;">← BACK</p>
+        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold;">← BACK TO LAB</p>
         <h1 id="recipe-title" style="color:var(--spice); font-weight: 300;"></h1>
         <div id="recipe-meta"></div>
-        <div id="steps-content"></div>
+        <div id="steps-content" style="margin-top: 20px;"></div>
     </div>
 
     <script>
@@ -117,21 +126,9 @@
         }
 
         const recipes = {
-            makhani: {
-                title: "Smoked Makhani Sphere",
-                temp: "65.2°C", pressure: "99% VAC", ph: "6.8 pH",
-                steps: ["Cut paneer cubes.", "Infuse saffron milk.", "Vacuum-seal.", "Sous-vide at 65°C.", "Roast tomatoes.", "Blend & strain.", "Emulsify butter.", "Hickory smoke.", "Add Lecithin.", "Charge siphon.", "Torch-sear.", "Plate on stone.", "Express foam.", "Garnish.", "Serve."]
-            },
-            biryani: {
-                title: "Modern Dum Biryani",
-                temp: "104.8°C", pressure: "1.2 ATM", ph: "7.0 pH",
-                steps: ["Age Basmati.", "pH 7.0 water.", "Extract Yakhni.", "Marinate meat.", "Dehydrate onions.", "Par-boil rice.", "Saffron 'Air'.", "Layer in Deg.", "Seal dough.", "Dum cook 42m.", "Distill Rose.", "Rest 15m.", "Plating.", "Garnish.", "Serve."]
-            },
-            rabri: {
-                title: "Cryogenic Rabri Cloud",
-                temp: "-196°C", pressure: "1.0 ATM", ph: "6.5 pH",
-                steps: ["Reduce milk.", "Infuse Saffron.", "Palm jaggery.", "Chill to 4°C.", "LN2 prep.", "Whisk mixer.", "Add LN2.", "Frozen clouds.", "Pistachio soil.", "Rose pearls.", "Cloud on soil.", "Gold leaf.", "Silver mint.", "Vapor serve.", "Eat in 30s."]
-            }
+            makhani: { title: "Smoked Makhani Sphere", temp: "65.2°C", pressure: "99% VAC", ph: "6.8 pH", steps: ["Cut paneer.", "Infuse saffron milk.", "Vacuum-seal.", "Sous-vide at 65°C.", "Roast tomatoes.", "Blend & strain.", "Emulsify butter.", "Hickory smoke.", "Add Lecithin.", "Charge siphon.", "Torch-sear.", "Plate on stone.", "Express foam.", "Garnish."] },
+            biryani: { title: "Modern Dum Biryani", temp: "104.8°C", pressure: "1.2 ATM", ph: "7.0 pH", steps: ["Age Basmati.", "pH 7.0 water.", "Extract Yakhni.", "Marinate meat.", "Dehydrate onions.", "Par-boil rice.", "Saffron 'Air'.", "Layer in Deg.", "Seal dough.", "Dum cook 42m.", "Distill Rose.", "Rest 15m."] },
+            rabri: { title: "Cryogenic Rabri Cloud", temp: "-196°C", pressure: "1.0 ATM", ph: "6.5 pH", steps: ["Reduce milk.", "Infuse Saffron.", "Palm jaggery.", "Chill to 4°C.", "LN2 prep.", "Whisk mixer.", "Add LN2.", "Frozen clouds.", "Pistachio soil.", "Rose pearls.", "Cloud on soil.", "Gold leaf."] }
         };
 
         function openRecipe(key) {
@@ -141,11 +138,11 @@
             document.getElementById('recipe-title').innerText = r.title;
             document.getElementById('recipe-meta').innerHTML = `<div class="tech-specs"><div class="spec-item">TEMP<span>${r.temp}</span></div><div class="spec-item">PRESSURE<span>${r.pressure}</span></div><div class="spec-item">pH<span>${r.ph}</span></div></div>`;
             let h = "";
-            r.steps.forEach((s, i) => { h += `<div class="step-row"><div class="step-num">${i+1}</div><div>${s}</div></div>`; });
+            r.steps.forEach((s, i) => { h += `<div style="display:flex; gap:20px; padding:15px 0; border-bottom:1px solid #eee;"><div style="color:var(--spice); font-weight:bold;">${i+1}</div><div>${s}</div></div>`; });
             document.getElementById('steps-content').innerHTML = h;
             window.scrollTo(0,0);
         }
     </script>
 </body>
-    </html>
-    
+                </html>
+                
