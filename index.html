@@ -97,6 +97,12 @@
             <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000">
             <div style="padding: 20px; text-align: center;"><h3>03. Cryogenic Rabri Cloud</h3></div>
         </div>
+        
+        <div class="dish-card" onclick="openRecipe('mango')">
+    <img src="https://images.unsplash.com/photo-1553181239-26038c35c67e?w=1000">
+    <div style="padding: 20px; text-align: center;"><h3>04. Nitrogen-Infused Mango Sphere</h3></div>
+        </div>
+        
 
         <div id="contact-area" class="contact-footer">
             <p style="color: var(--spice); font-weight: bold;">vishnudharreddybalam@gmail.com</p>
@@ -130,26 +136,9 @@
             biryani: { title: "Modern Dum Biryani", temp: "104.8°C", pressure: "1.2 ATM", ph: "7.0 pH", steps: ["Age Basmati.", "pH 7.0 water.", "Extract Yakhni.", "Marinate meat.", "Dehydrate onions.", "Par-boil rice.", "Saffron 'Air'.", "Layer in Deg.", "Seal dough.", "Dum cook 42m.", "Distill Rose.", "Rest 15m."] },
             rabri: { title: "Cryogenic Rabri Cloud", temp: "-196°C", pressure: "1.0 ATM", ph: "6.5 pH", steps: ["Reduce milk.", "Infuse Saffron.", "Palm jaggery.", "Chill to 4°C.", "LN2 prep.", "Whisk mixer.", "Add LN2.", "Frozen clouds.", "Pistachio soil.", "Rose pearls.", "Cloud on soil.", "Gold leaf."] }
         };
+        
 
-        function openRecipe(key) {
-            document.getElementById('gallery-page').style.display = 'none';
-            document.getElementById('recipe-page').style.display = 'block';
-            const r = recipes[key];
-            document.getElementById('recipe-title').innerText = r.title;
-            document.getElementById('recipe-meta').innerHTML = `<div class="tech-specs"><div class="spec-item">TEMP<span>${r.temp}</span></div><div class="spec-item">PRESSURE<span>${r.pressure}</span></div><div class="spec-item">pH<span>${r.ph}</span></div></div>`;
-            let h = "";
-            r.steps.forEach((s, i) => { h += `<div style="display:flex; gap:20px; padding:15px 0; border-bottom:1px solid #eee;"><div style="color:var(--spice); font-weight:bold;">${i+1}</div><div>${s}</div></div>`; });
-            document.getElementById('steps-content').innerHTML = h;
-            window.scrollTo(0,0);
-        }
-    </script>
-</body>
-                </html>
-<div class="dish-card" onclick="openRecipe('mango')">
-    <img src="https://images.unsplash.com/photo-1553181239-26038c35c67e?w=1000">
-    <div style="padding: 20px; text-align: center;"><h3>04. Nitrogen-Infused Mango Sphere</h3></div>
-</div>
-mango: { 
+        mango: { 
     title: "Technical: Nitrogen Mango Sphere", 
     temp: "-196°C", 
     pressure: "1.0 ATM", 
@@ -165,6 +154,21 @@ mango: {
         "Inject with honey-cardamom essence.",
         "Serve on a bed of crushed ice."
     ] 
-}
+        }
+        
 
-                
+        function openRecipe(key) {
+            document.getElementById('gallery-page').style.display = 'none';
+            document.getElementById('recipe-page').style.display = 'block';
+            const r = recipes[key];
+            document.getElementById('recipe-title').innerText = r.title;
+            document.getElementById('recipe-meta').innerHTML = `<div class="tech-specs"><div class="spec-item">TEMP<span>${r.temp}</span></div><div class="spec-item">PRESSURE<span>${r.pressure}</span></div><div class="spec-item">pH<span>${r.ph}</span></div></div>`;
+            let h = "";
+            r.steps.forEach((s, i) => { h += `<div style="display:flex; gap:20px; padding:15px 0; border-bottom:1px solid #eee;"><div style="color:var(--spice); font-weight:bold;">${i+1}</div><div>${s}</div></div>`; });
+            document.getElementById('steps-content').innerHTML = h;
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+                </html>
+
