@@ -3,121 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chefs-Hub | Elite Indian Gastronomy</title>
+    <title>Chefs-Hub | The Elite Masterclass</title>
     <style>
-        :root { 
-            --bg: #fdfcf9; 
-            --accent: #c5a059; 
-            --text: #222222; 
-            --card-bg: #ffffff;
-            --step-bg: #f9f7f2;
+        :root { --bg: #fdfcf9; --accent: #c5a059; --text: #222; }
+        body { background: var(--bg); color: var(--text); font-family: 'Garamond', serif; margin: 0; overflow-x: hidden; }
+        
+        /* WELCOME INTERFACE */
+        #welcome-screen {
+            height: 100vh; display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; text-align: center;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200');
+            background-size: cover; background-position: center;
         }
-
-        body { 
-            background-color: var(--bg); 
-            color: var(--text); 
-            font-family: 'Garamond', 'Georgia', serif; 
-            margin: 0; 
-            padding: 40px 5%; 
+        .chef-welcome { font-size: 4rem; letter-spacing: 8px; text-transform: uppercase; margin: 0; font-weight: 300; }
+        .btn-start { 
+            margin-top: 30px; padding: 15px 40px; border: 1px solid var(--accent); 
+            background: transparent; color: var(--accent); cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px; transition: 0.4s;
         }
+        .btn-start:hover { background: var(--accent); color: white; }
 
-        .container { max-width: 950px; margin: auto; }
-
-        .header { 
-            text-align: center; 
-            border-bottom: 1px solid var(--accent); 
-            padding-bottom: 40px; 
-            margin-bottom: 60px; 
+        /* GALLERY INTERFACE */
+        #gallery-page, #recipe-page { display: none; padding: 60px 5%; }
+        .dish-card { 
+            max-width: 600px; margin: auto; cursor: pointer; 
+            transition: 0.4s; border-bottom: 1px solid #eee; padding-bottom: 40px;
         }
+        .dish-card img { width: 100%; height: 400px; object-fit: cover; border-radius: 2px; }
+        .dish-card:hover { opacity: 0.8; }
 
-        h1 { font-size: 3.5rem; margin: 0; letter-spacing: 5px; font-weight: 300; text-transform: uppercase; }
-        .sub-header { letter-spacing: 3px; font-size: 0.8rem; color: #777; margin-top: 10px; }
-
-        .dish-section { 
-            background: var(--card-bg); 
-            margin-bottom: 80px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.03); 
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .hero-img { width: 100%; height: 500px; object-fit: cover; border-bottom: 4px solid var(--accent); }
-
-        .content { padding: 50px; }
-
-        .apparatus-box { 
-            background: var(--step-bg); 
-            padding: 20px; 
-            margin: 30px 0; 
-            display: flex; 
-            gap: 20px; 
-            flex-wrap: wrap; 
-            border-left: 3px solid var(--accent);
-        }
-
-        .tool { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; }
-
-        .steps-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 40px; }
-
-        .step-row { display: flex; gap: 25px; padding: 20px 0; border-bottom: 1px solid #eee; transition: 0.3s; }
-        .step-row:hover { background: #fffcf5; }
-
-        .step-num { font-family: sans-serif; font-size: 1.2rem; color: var(--accent); font-weight: 300; min-width: 40px; }
-        .step-desc { line-height: 1.8; font-size: 1.05rem; color: #444; }
-
-        h2 { font-size: 2.5rem; margin-top: 0; font-weight: 400; color: #111; }
+        /* RECIPE PAGE */
+        .step-row { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .step-num { color: var(--accent); font-weight: bold; min-width: 30px; }
+        .back-btn { cursor: pointer; color: var(--accent); margin-bottom: 20px; display: inline-block; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <h1>Chefs-Hub</h1>
-            <div class="sub-header">MODERN INDIAN CULINARY INTELLIGENCE | 2026 EDITION</div>
-        </div>
-
-        <div class="dish-section">
-            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200" class="hero-img">
-            <div class="content">
-                <h2>01. Smoked Makhani Sphere & Saffron Paneer</h2>
-                <p><i>A precision study in vacuum-infusion and aromatic smoke suspension.</i></p>
-                
-                <div class="apparatus-box">
-                    <span class="tool">Vacuum Sealer</span>
-                    <span class="tool">Hickory Smoker</span>
-                    <span class="tool">Siphon Whipper (N2O)</span>
-                    <span class="tool">Sous-Vide Immersion</span>
-                </div>
-
-                <div class="steps-grid">
-                    <div class="step-row"><div class="step-num">01</div><div class="step-desc">Select premium malai paneer and cut into exact 30mm cubes using a precision blade.</div></div>
-                    <div class="step-row"><div class="step-num">02</div><div class="step-desc">Infuse 100ml of warm milk with Kashmiri saffron strands for 30 minutes.</div></div>
-                    <div class="step-row"><div class="step-num">03</div><div class="step-desc">Vacuum-seal paneer with saffron infusion to force flavor into the protein core.</div></div>
-                    <div class="step-row"><div class="step-num">04</div><div class="step-desc">Sous-vide the paneer at 65°C for 20 minutes for a butter-soft texture.</div></div>
-                    <div class="step-row"><div class="step-num">05</div><div class="step-desc">Roast Roma tomatoes at 200°C until skins char and natural sugars caramelize.</div></div>
-                    <div class="step-row"><div class="step-num">06</div><div class="step-desc">Blend roasted tomatoes with ginger-garlic; strain through a fine-mesh chinois.</div></div>
-                    <div class="step-row"><div class="step-num">07</div><div class="step-desc">Emulsify the sauce with cold unsalted butter for a high-gloss professional finish.</div></div>
-                    <div class="step-row"><div class="step-num">08</div><div class="step-desc">Infuse Hickory smoke into the sauce using a handheld smoker for 5 minutes.</div></div>
-                    <div class="step-row"><div class="step-num">09</div><div class="step-desc">Add 2g Soy Lecithin to the smoked sauce to ensure foam stability.</div></div>
-                    <div class="step-row"><div class="step-num">10</div><div class="step-desc">Charge siphon with two N2O cartridges and maintain temperature at 50°C.</div></div>
-                    <div class="step-row"><div class="step-num">11</div><div class="step-desc">Dehydrate black garlic and mix with roasted cumin to create a "Coal Crumb."</div></div>
-                    <div class="step-row"><div class="step-num">12</div><div class="step-desc">Flash-sear one side of the paneer with a kitchen torch for tandoori aroma.</div></div>
-                    <div class="step-row"><div class="step-num">13</div><div class="step-desc">Position the paneer cube centrally on a chilled stone ceramic plate.</div></div>
-                    <div class="step-row"><div class="step-num">14</div><div class="step-desc">Gently express the Smoked Makhani Foam around the base of the paneer.</div></div>
-                    <div class="step-row"><div class="step-num">15</div><div class="step-desc">Garnish with Coal Crumb and micro-greens using plating tweezers. Serve.</div></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="dish-section">
-            <div class="content" style="text-align: center; border: 2px dashed #ddd; padding: 100px;">
-                <h3 style="color: #999;">Dish #02: Modern Hyderabadi Intelligence</h3>
-                <p>Coming Soon - Currently in the Lab</p>
-            </div>
-        </div>
-
+    <div id="welcome-screen">
+        <h1 class="chef-welcome">Welcome, Chef</h1>
+        <p style="letter-spacing: 3px;">The Lab is Ready for Your Innovation</p>
+        <button class="btn-start" onclick="showGallery()">Enter Chefs-Hub</button>
     </div>
 
+    <div id="gallery-page">
+        <h1 style="text-align: center; font-weight: 300; letter-spacing: 4px;">Select a Masterpiece</h1>
+        <div class="dish-card" onclick="showRecipe('makhani')">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000">
+            <h2 style="text-align: center; font-weight: 400; margin-top: 20px;">01. Smoked Makhani Sphere</h2>
+            <p style="text-align: center; color: #777;">Click to View 15-Step Technical Execution</p>
+        </div>
+    </div>
+
+    <div id="recipe-page">
+        <span class="back-btn" onclick="showGallery()">← Back to Gallery</span>
+        <div id="recipe-content">
+            </div>
+    </div>
+
+    <script>
+        function showGallery() {
+            document.getElementById('welcome-screen').style.display = 'none';
+            document.getElementById('recipe-page').style.display = 'none';
+            document.getElementById('gallery-page').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function showRecipe(dishId) {
+            document.getElementById('gallery-page').style.display = 'none';
+            document.getElementById('recipe-page').style.display = 'block';
+            window.scrollTo(0,0);
+
+            // This is where we put your 15 steps!
+            if(dishId === 'makhani') {
+                document.getElementById('recipe-content').innerHTML = `
+                    <h1 style="color:var(--accent)">Smoked Makhani Sphere & Saffron Paneer</h1>
+                    <h3>Professional 15-Step Execution</h3>
+                    <div class="step-row"><div class="step-num">01</div><div>Select premium malai paneer and cut into exact 30mm cubes.</div></div>
+                    <div class="step-row"><div class="step-num">02</div><div>Infuse 100ml of warm milk with Kashmiri saffron for 30 minutes.</div></div>
+                    <div class="step-row"><div class="step-num">03</div><div>Vacuum-seal paneer with infusion to force flavor into the core.</div></div>
+                    <div class="step-row"><div class="step-num">04</div><div>Sous-vide the paneer at 65°C for 20 minutes for a soft texture.</div></div>
+                    <div class="step-row"><div class="step-num">05</div><div>Roast Roma tomatoes at 200°C until skins char and sugars caramelize.</div></div>
+                    <div class="step-row"><div class="step-num">06</div><div>Blend tomatoes with ginger-garlic; strain through a fine-mesh chinois.</div></div>
+                    <div class="step-row"><div class="step-num">07</div><div>Emulsify sauce with cold unsalted butter for a glossy finish.</div></div>
+                    <div class="step-row"><div class="step-num">08</div><div>Infuse Hickory smoke into the sauce using a handheld smoker.</div></div>
+                    <div class="step-row"><div class="step-num">09</div><div>Add 2g Soy Lecithin to the smoked sauce for foam stability.</div></div>
+                    <div class="step-row"><div class="step-num">10</div><div>Charge siphon with two N2O cartridges; maintain at 50°C.</div></div>
+                    <div class="step-row"><div class="step-num">11</div><div>Dehydrate black garlic and cumin to create a "Coal Crumb."</div></div>
+                    <div class="step-row"><div class="step-num">12</div><div>Flash-sear one side of paneer with a torch for tandoori aroma.</div></div>
+                    <div class="step-row"><div class="step-num">13</div><div>Position the paneer cube centrally on a chilled stone plate.</div></div>
+                    <div class="step-row"><div class="step-num">14</div><div>Gently express the Smoked Makhani Foam around the paneer.</div></div>
+                    <div class="step-row"><div class="step-num">15</div><div>Garnish with Coal Crumb and micro-greens. Serve immediately.</div></div>
+                `;
+            }
+        }
+    </script>
 </body>
-                        </html>
-    
+            </html>
+            
