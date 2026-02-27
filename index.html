@@ -5,60 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chefs-Hub | B.Vishnudhar Reddy</title>
     <style>
-        :root { 
-            --bg-warm: #fdfaf5; 
-            --spice: #b35900; 
-            --text-deep: #2c1a0a; 
-            --accent: #d4a373; 
-        }
-        
+        :root { --bg-warm: #fdfaf5; --spice: #b35900; --text-deep: #2c1a0a; --accent: #d4a373; }
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; }
 
-        /* 1. WELCOME SCREEN */
+        /* WELCOME SCREEN WITH PROFILE */
         #welcome-screen { 
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
-            background: linear-gradient(rgba(44, 26, 10, 0.7), rgba(44, 26, 10, 0.7)), 
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(rgba(44, 26, 10, 0.75), rgba(44, 26, 10, 0.75)), 
                         url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200');
             background-size: cover; background-position: center; color: #fff9f0;
         }
-        .chef-title { font-size: 4rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; }
-        .founder-quote { max-width: 650px; font-size: 1.2rem; line-height: 1.8; font-style: italic; margin: 30px 0; padding: 0 20px; color: #eee; }
-        
-        /* 2. GALLERY & RECIPE INTERFACE */
+        .welcome-container { display: flex; align-items: center; gap: 50px; max-width: 1100px; padding: 40px; }
+        .profile-img { width: 350px; height: 450px; object-fit: cover; border: 4px solid var(--accent); border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .welcome-text { flex: 1; text-align: left; }
+        .chef-title { font-size: 3.5rem; letter-spacing: 10px; text-transform: uppercase; margin: 0; color: #f5cc91; }
+        .founder-quote { font-size: 1.2rem; line-height: 1.8; font-style: italic; margin: 30px 0; color: #eee; }
+
+        /* GALLERY & RECIPE PAGES */
         #gallery-page, #recipe-page { display: none; padding: 80px 5%; max-width: 1000px; margin: auto; }
-        .dish-card { 
-            background: white; border-radius: 4px; overflow: hidden; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05); cursor: pointer; transition: 0.4s;
-            border-bottom: 4px solid var(--spice); margin-bottom: 50px;
-        }
+        .dish-card { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); cursor: pointer; transition: 0.4s; border-bottom: 4px solid var(--spice); margin-bottom: 50px; }
         .dish-card:hover { transform: translateY(-10px); }
         .dish-card img { width: 100%; height: 500px; object-fit: cover; }
-        
         .step-row { display: flex; gap: 30px; padding: 25px 0; border-bottom: 1px solid #f0e6d6; }
-        .step-num { color: var(--spice); font-weight: bold; font-size: 1.2rem; min-width: 40px; font-family: sans-serif; }
-
-        .apparatus-tag { background: #f0e6d6; color: var(--spice); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-right: 10px; }
-
-        /* CONTACT SECTION */
-        .contact-footer { margin-top: 100px; text-align: center; padding: 60px; border-top: 1px solid #eee; background: #fffcf8; }
+        .step-num { color: var(--spice); font-weight: bold; font-size: 1.2rem; min-width: 40px; }
 
         /* BUTTONS */
-        .btn-spice { 
-            padding: 18px 45px; background: var(--spice); color: white; border: none; 
-            cursor: pointer; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem;
-            transition: 0.3s; border-radius: 2px;
-        }
-        .btn-spice:hover { background: #8a4500; letter-spacing: 5px; }
+        .btn-spice { padding: 18px 45px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; transition: 0.3s; }
+        .btn-spice:hover { background: #8a4500; }
     </style>
 </head>
 <body>
 
     <div id="welcome-screen">
-        <h1 class="chef-title">Chefs-Hub</h1>
-        <div class="founder-quote">
-            "Hello, I am B.Vishnudhar Reddy. At Chefs-Hub, we don't just cook—we innovate. Combining the precision of MPC logic with the soul of Indian flavors, I invite you to explore the future of gastronomy."
+        <div class="welcome-container">
+            <img src="https://images.unsplash.com/photo-1583394293235-4815c1516001?w=600" class="profile-img">
+            <div class="welcome-text">
+                <h1 class="chef-title">Chefs-Hub</h1>
+                <div class="founder-quote">
+                    "Hello, I am B.Vishnudhar Reddy. At Chefs-Hub, we don't just cook—we innovate. Combining the precision of MPC logic with the soul of Indian flavors, I invite you to explore the future of gastronomy."
+                </div>
+                <button class="btn-spice" onclick="goToGallery()">Enter the Library</button>
+            </div>
         </div>
-        <button class="btn-spice" onclick="goToGallery()">Enter the Library</button>
     </div>
 
     <div id="gallery-page">
@@ -66,39 +54,14 @@
             <h2 style="letter-spacing: 8px; font-weight: 300; text-transform: uppercase; color: var(--spice);">The 2026 Technical Series</h2>
             <p style="color: #888;">Modern Indian Intelligence by B.Vishnudhar Reddy</p>
         </div>
-        
-        <div class="dish-card" onclick="openRecipe('makhani')">
-            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200">
-            <div style="padding: 40px; text-align: center;">
-                <h2 style="font-weight: 400; font-size: 2rem;">01. Smoked Makhani Sphere</h2>
-            </div>
-        </div>
-
-        <div class="dish-card" onclick="openRecipe('biryani')">
-            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1200">
-            <div style="padding: 40px; text-align: center;">
-                <h2 style="font-weight: 400; font-size: 2rem;">02. Deconstructed Dum Biryani</h2>
-            </div>
-        </div>
-
-        <div class="dish-card" onclick="openRecipe('rabri')">
-            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1200">
-            <div style="padding: 40px; text-align: center;">
-                <h2 style="font-weight: 400; font-size: 2rem;">03. Cryogenic Saffron Rabri Cloud</h2>
-            </div>
-        </div>
-
-        <div class="contact-footer">
-            <h3 style="letter-spacing: 3px; font-weight: 300;">COLLABORATE WITH THE FOUNDER</h3>
-            <button class="btn-spice" onclick="window.location.href='mailto:your-email@example.com'">Send Message</button>
-            <p style="margin-top: 20px; font-size: 0.8rem; color: #999;">&copy; 2026 B.Vishnudhar Reddy | Chefs-Hub</p>
-        </div>
+        <div class="dish-card" onclick="openRecipe('makhani')"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200"><div style="padding:40px;text-align:center;"><h2>01. Smoked Makhani Sphere</h2></div></div>
+        <div class="dish-card" onclick="openRecipe('biryani')"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1200"><div style="padding:40px;text-align:center;"><h2>02. Modern Dum Biryani</h2></div></div>
+        <div class="dish-card" onclick="openRecipe('rabri')"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1200"><div style="padding:40px;text-align:center;"><h2>03. Cryogenic Rabri Cloud</h2></div></div>
     </div>
 
     <div id="recipe-page">
         <p onclick="goToGallery()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 40px;">← BACK TO COLLECTION</p>
-        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; font-size: 2.5rem; border-bottom: 1px solid var(--accent); padding-bottom: 20px;"></h1>
-        <div id="apparatus-container" style="margin: 20px 0;"></div>
+        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; font-size: 2.5rem;"></h1>
         <div id="steps-content"></div>
     </div>
 
@@ -111,72 +74,24 @@
         }
 
         const recipes = {
-            makhani: {
-                title: "Execution: Makhani Sphere",
-                apparatus: ["Vacuum Sealer", "Hickory Smoker", "Siphon Whipper"],
-                steps: [
-                    "Select malai paneer; cut into 30mm cubes.", "Infuse 100ml milk with saffron for 30 mins.",
-                    "Vacuum-seal paneer with infusion.", "Sous-vide at 65°C for 20 mins.",
-                    "Roast Roma tomatoes until charred.", "Blend and strain through a chinois.",
-                    "Emulsify sauce with cold butter.", "Infuse Hickory smoke for 5 mins.",
-                    "Add 2g Soy Lecithin for stability.", "Charge siphon with N2O cartridges.",
-                    "Create Coal Crumb with black garlic.", "Flash-sear paneer with torch.",
-                    "Plate centrally on stone ceramic.", "Express Smoked Makhani Foam.",
-                    "Garnish with micro-greens and serve."
-                ]
-            },
-            biryani: {
-                title: "Execution: Modern Dum Biryani",
-                apparatus: ["pH Meter", "Lab-Grade Distiller", "Copper Deg"],
-                steps: [
-                    "Select long-grain Basmati aged 2 years.", "Soak in pH-balanced water (pH 7.0).",
-                    "Extract protein essence for 'Yakhni'.", "Vacuum-marinate meat with papaya enzyme.",
-                    "Dehydrate onions at 60°C for 12 hours.", "Par-boil rice until 70% gelatinized.",
-                    "Create saffron 'Air' using a pump.", "Layer rice and meat in a copper 'Deg'.",
-                    "Seal lid with dough for internal pressure.", "Slow-cook (Dum) for 42 minutes.",
-                    "Extract Rose essence via steam distiller.", "Rest Biryani for 15 mins for moisture.",
-                    "Separate grains with a spatula.", "Plate rice in a spiral formation.",
-                    "Top with Saffron Air and serve."
-                ]
-            },
-            rabri: {
-                title: "Execution: Cryogenic Rabri Cloud",
-                apparatus: ["Liquid Nitrogen Dewar", "Cryo-Gloves", "Stand Mixer"],
-                steps: [
-                    "Reduce full-fat milk by 70%.", "Infuse with Saffron and cardamom.",
-                    "Sweeten with organic palm jaggery.", "Chill the rabri base to 4°C.",
-                    "Prepare Liquid Nitrogen (LN2) in a Dewar.", "Pour rabri base into a mixer.",
-                    "Slowly add LN2 while whisking.", "Capture the frozen 'clouds'.",
-                    "Prepare a base of pistachio 'soil'.", "Add drops of rosewater pearls.",
-                    "Place the frozen cloud atop soil.", "Dust with edible 24k gold leaf.",
-                    "Add a sprig of silver-dusted mint.", "Serve immediately while vapor is visible.",
-                    "Advise guest to eat within 30 seconds."
-                ]
-            }
+            makhani: { title: "Execution: Makhani Sphere", steps: ["Select malai paneer; cut into 30mm cubes.", "Infuse 100ml milk with saffron for 30 mins.", "Vacuum-seal paneer with infusion.", "Sous-vide at 65°C for 20 mins.", "Roast Roma tomatoes until charred.", "Blend and strain through a chinois.", "Emulsify sauce with cold butter.", "Infuse Hickory smoke for 5 mins.", "Add 2g Soy Lecithin for stability.", "Charge siphon with N2O cartridges.", "Create Coal Crumb with black garlic.", "Flash-sear paneer with torch.", "Plate centrally on stone ceramic.", "Express Smoked Makhani Foam.", "Garnish with micro-greens and serve."] },
+            biryani: { title: "Execution: Modern Dum Biryani", steps: ["Select long-grain Basmati aged 2 years.", "Soak in pH-balanced water (pH 7.0).", "Extract protein essence for 'Yakhni'.", "Vacuum-marinate meat with papaya enzyme.", "Dehydrate onions at 60°C for 12 hours.", "Par-boil rice until 70% gelatinized.", "Create saffron 'Air' using a pump.", "Layer rice and meat in a copper 'Deg'.", "Seal lid with dough for pressure.", "Slow-cook (Dum) for 42 minutes.", "Extract Rose essence via steam distiller.", "Rest Biryani for 15 mins.", "Separate grains with a spatula.", "Plate rice in a spiral formation.", "Top with Saffron Air and serve."] },
+            rabri: { title: "Execution: Cryogenic Rabri Cloud", steps: ["Reduce full-fat milk by 70%.", "Infuse with Saffron and cardamom.", "Sweeten with organic palm jaggery.", "Chill the rabri base to 4°C.", "Prepare Liquid Nitrogen (LN2).", "Pour rabri base into a mixer.", "Slowly add LN2 while whisking.", "Capture the frozen 'clouds'.", "Prepare a base of pistachio 'soil'.", "Add drops of rosewater pearls.", "Place the frozen cloud atop soil.", "Dust with edible 24k gold leaf.", "Add a sprig of silver-dusted mint.", "Serve immediately while vapor is visible.", "Advise guest to eat within 30 seconds."] }
         };
 
         function openRecipe(key) {
             document.getElementById('gallery-page').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'block';
-            window.scrollTo(0,0);
             const selected = recipes[key];
             document.getElementById('recipe-title').innerText = selected.title;
-            
-            // Show Apparatus
-            let appHtml = "<strong>Apparatus:</strong> ";
-            selected.apparatus.forEach(a => {
-                appHtml += `<span class="apparatus-tag">${a}</span>`;
-            });
-            document.getElementById('apparatus-container').innerHTML = appHtml;
-
-            // Show Steps
             let html = "";
             selected.steps.forEach((s, i) => {
                 html += `<div class="step-row"><div class="step-num">${i+1 < 10 ? '0'+(i+1) : i+1}</div><div>${s}</div></div>`;
             });
             document.getElementById('steps-content').innerHTML = html;
+            window.scrollTo(0,0);
         }
     </script>
 </body>
-    </html>
-    
+                                                                                                                                                  </html>
+            
