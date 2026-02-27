@@ -8,90 +8,105 @@
         :root { --bg-warm: #fdfaf5; --spice: #b35900; --text-deep: #2c1a0a; --accent: #d4a373; }
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; }
 
-        /* WELCOME SCREEN WITH PROFILE */
+        /* STICKY HEADER */
+        #site-header {
+            padding: 15px 5%; display: none; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid #f0e6d6; background: rgba(253, 250, 245, 0.95);
+            backdrop-filter: blur(5px); position: sticky; top: 0; z-index: 900;
+        }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: bold; }
+
+        /* WELCOME */
         #welcome-screen { 
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(rgba(44, 26, 10, 0.75), rgba(44, 26, 10, 0.75)), 
-                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200');
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
+            background: linear-gradient(rgba(44, 26, 10, 0.75), rgba(44, 26, 10, 0.75)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200');
             background-size: cover; background-position: center; color: #fff9f0;
         }
-        .welcome-container { display: flex; align-items: center; gap: 50px; max-width: 1100px; padding: 40px; }
-        .profile-img { width: 350px; height: 450px; object-fit: cover; border: 4px solid var(--accent); border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .welcome-text { flex: 1; text-align: left; }
         .chef-title { font-size: 3.5rem; letter-spacing: 10px; text-transform: uppercase; margin: 0; color: #f5cc91; }
-        .founder-quote { font-size: 1.2rem; line-height: 1.8; font-style: italic; margin: 30px 0; color: #eee; }
+        .founder-quote { max-width: 600px; font-size: 1.1rem; line-height: 1.8; font-style: italic; margin: 30px 0; color: #eee; }
 
-        /* GALLERY & RECIPE PAGES */
-        #gallery-page, #recipe-page { display: none; padding: 80px 5%; max-width: 1000px; margin: auto; }
-        .dish-card { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); cursor: pointer; transition: 0.4s; border-bottom: 4px solid var(--spice); margin-bottom: 50px; }
-        .dish-card:hover { transform: translateY(-10px); }
-        .dish-card img { width: 100%; height: 500px; object-fit: cover; }
-        .step-row { display: flex; gap: 30px; padding: 25px 0; border-bottom: 1px solid #f0e6d6; }
-        .step-num { color: var(--spice); font-weight: bold; font-size: 1.2rem; min-width: 40px; }
+        /* GALLERY & RECIPE */
+        #gallery-page, #recipe-page { display: none; padding: 60px 5%; max-width: 900px; margin: auto; }
+        .dish-card { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: 0.4s; border-bottom: 4px solid var(--spice); margin-bottom: 40px; }
+        .dish-card:hover { transform: translateY(-5px); }
+        .dish-card img { width: 100%; height: 450px; object-fit: cover; }
+        .step-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; }
+        .step-num { color: var(--spice); font-weight: bold; min-width: 30px; }
 
         /* BUTTONS */
-        .btn-spice { padding: 18px 45px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; transition: 0.3s; }
+        .btn-spice { padding: 15px 35px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; transition: 0.3s; }
         .btn-spice:hover { background: #8a4500; }
+        
+        .contact-footer { margin-top: 80px; text-align: center; padding: 60px; background: #fffcf8; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
-    <div id="welcome-screen">
-        <div class="welcome-container">
-            <img src="https://images.unsplash.com/photo-1583394293235-4815c1516001?w=600" class="profile-img">
-            <div class="welcome-text">
-                <h1 class="chef-title">Chefs-Hub</h1>
-                <div class="founder-quote">
-                    "Hello, I am B.Vishnudhar Reddy. At Chefs-Hub, we don't just cook—we innovate. Combining the precision of MPC logic with the soul of Indian flavors, I invite you to explore the future of gastronomy."
-                </div>
-                <button class="btn-spice" onclick="goToGallery()">Enter the Library</button>
-            </div>
+    <header id="site-header">
+        <div class="logo-container">
+            <div class="logo-icon">V</div>
+            <div style="font-family: sans-serif; font-size: 0.7rem; letter-spacing: 1px;">VISHNUDHAR REDDY<br><strong>CHEFS-HUB</strong></div>
         </div>
+        <button class="btn-spice" style="padding: 8px 15px;" onclick="scrollToContact()">Contact</button>
+    </header>
+
+    <div id="welcome-screen">
+        <h1 class="chef-title">Chefs-Hub</h1>
+        <div class="founder-quote">
+            "Hello, I am B.Vishnudhar Reddy. At Chefs-Hub, we don't just cook—we innovate. Combining the precision of MPC logic with the soul of Indian flavors, I invite you to explore the future of gastronomy."
+        </div>
+        <button class="btn-spice" onclick="enterSite()">Explore Innovations</button>
     </div>
 
     <div id="gallery-page">
-        <div style="text-align: center; margin-bottom: 80px;">
-            <h2 style="letter-spacing: 8px; font-weight: 300; text-transform: uppercase; color: var(--spice);">The 2026 Technical Series</h2>
-            <p style="color: #888;">Modern Indian Intelligence by B.Vishnudhar Reddy</p>
+        <h2 style="text-align:center; letter-spacing: 5px; font-weight: 300;">THE 2026 COLLECTION</h2>
+        <div class="dish-card" onclick="openRecipe('makhani')"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000"><div style="padding:30px;text-align:center;"><h3>01. Smoked Makhani Sphere</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('biryani')"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000"><div style="padding:30px;text-align:center;"><h3>02. Deconstructed Dum Biryani</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('rabri')"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000"><div style="padding:30px;text-align:center;"><h3>03. Cryogenic Saffron Rabri Cloud</h3></div></div>
+
+        <div id="contact-area" class="contact-footer">
+            <h3 style="font-weight: 300; letter-spacing: 2px;">GET IN TOUCH</h3>
+            <p style="color: #666;">Ready to innovate? Email me at:</p>
+            <p style="font-size: 1.2rem; color: var(--spice); font-weight: bold;">vishnudharreddybalam@gmail.com</p>
+            <button class="btn-spice" onclick="window.location.href='mailto: vishnudharreddybalam@gmail.com'">Send Email Now</button>
+            <p style="margin-top: 30px; font-size: 0.7rem; color: #aaa;">&copy; 2026 B.Vishnudhar Reddy</p>
         </div>
-        <div class="dish-card" onclick="openRecipe('makhani')"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200"><div style="padding:40px;text-align:center;"><h2>01. Smoked Makhani Sphere</h2></div></div>
-        <div class="dish-card" onclick="openRecipe('biryani')"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1200"><div style="padding:40px;text-align:center;"><h2>02. Modern Dum Biryani</h2></div></div>
-        <div class="dish-card" onclick="openRecipe('rabri')"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1200"><div style="padding:40px;text-align:center;"><h2>03. Cryogenic Rabri Cloud</h2></div></div>
     </div>
 
     <div id="recipe-page">
-        <p onclick="goToGallery()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 40px;">← BACK TO COLLECTION</p>
-        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; font-size: 2.5rem;"></h1>
+        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold;">← BACK</p>
+        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300;"></h1>
         <div id="steps-content"></div>
     </div>
 
     <script>
-        function goToGallery() {
+        function enterSite() {
             document.getElementById('welcome-screen').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'none';
             document.getElementById('gallery-page').style.display = 'block';
+            document.getElementById('site-header').style.display = 'flex';
             window.scrollTo(0,0);
         }
-
+        function scrollToContact() {
+            document.getElementById('contact-area').scrollIntoView({behavior: 'smooth'});
+        }
         const recipes = {
-            makhani: { title: "Execution: Makhani Sphere", steps: ["Select malai paneer; cut into 30mm cubes.", "Infuse 100ml milk with saffron for 30 mins.", "Vacuum-seal paneer with infusion.", "Sous-vide at 65°C for 20 mins.", "Roast Roma tomatoes until charred.", "Blend and strain through a chinois.", "Emulsify sauce with cold butter.", "Infuse Hickory smoke for 5 mins.", "Add 2g Soy Lecithin for stability.", "Charge siphon with N2O cartridges.", "Create Coal Crumb with black garlic.", "Flash-sear paneer with torch.", "Plate centrally on stone ceramic.", "Express Smoked Makhani Foam.", "Garnish with micro-greens and serve."] },
-            biryani: { title: "Execution: Modern Dum Biryani", steps: ["Select long-grain Basmati aged 2 years.", "Soak in pH-balanced water (pH 7.0).", "Extract protein essence for 'Yakhni'.", "Vacuum-marinate meat with papaya enzyme.", "Dehydrate onions at 60°C for 12 hours.", "Par-boil rice until 70% gelatinized.", "Create saffron 'Air' using a pump.", "Layer rice and meat in a copper 'Deg'.", "Seal lid with dough for pressure.", "Slow-cook (Dum) for 42 minutes.", "Extract Rose essence via steam distiller.", "Rest Biryani for 15 mins.", "Separate grains with a spatula.", "Plate rice in a spiral formation.", "Top with Saffron Air and serve."] },
-            rabri: { title: "Execution: Cryogenic Rabri Cloud", steps: ["Reduce full-fat milk by 70%.", "Infuse with Saffron and cardamom.", "Sweeten with organic palm jaggery.", "Chill the rabri base to 4°C.", "Prepare Liquid Nitrogen (LN2).", "Pour rabri base into a mixer.", "Slowly add LN2 while whisking.", "Capture the frozen 'clouds'.", "Prepare a base of pistachio 'soil'.", "Add drops of rosewater pearls.", "Place the frozen cloud atop soil.", "Dust with edible 24k gold leaf.", "Add a sprig of silver-dusted mint.", "Serve immediately while vapor is visible.", "Advise guest to eat within 30 seconds."] }
+            makhani: { title: "Smoked Makhani Sphere", steps: ["Select malai paneer; 30mm cubes.", "Infuse saffron milk.", "Vacuum-seal paneer.", "Sous-vide at 65°C.", "Roast tomatoes.", "Blend & strain.", "Emulsify with butter.", "Smoker for 5 mins.", "Add Soy Lecithin.", "Charge N2O siphon.", "Create Coal Crumb.", "Flash-sear paneer.", "Plate on stone.", "Express foam.", "Garnish & serve."] },
+            biryani: { title: "Modern Dum Biryani", steps: ["Basmati aged 2yrs.", "pH 7.0 water soak.", "Extract Yakhni.", "Marinate with papaya.", "Dehydrate onions.", "Par-boil rice.", "Create saffron 'Air'.", "Layer in copper Deg.", "Seal with dough.", "Dum cook 42 mins.", "Distill Rose water.", "Rest 15 mins.", "Separate grains.", "Spiral plating.", "Top with Saffron Air."] },
+            rabri: { title: "Cryogenic Rabri Cloud", steps: ["Reduce milk by 70%.", "Infuse Saffron.", "Add palm jaggery.", "Chill to 4°C.", "Liquid Nitrogen prep.", "Whisk in mixer.", "Slowly add LN2.", "Capture frozen clouds.", "Pistachio soil base.", "Rosewater pearls.", "Place cloud atop soil.", "24k Gold leaf dust.", "Silver mint sprig.", "Visible vapor serve.", "Eat in 30 seconds."] }
         };
-
         function openRecipe(key) {
             document.getElementById('gallery-page').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'block';
-            const selected = recipes[key];
-            document.getElementById('recipe-title').innerText = selected.title;
-            let html = "";
-            selected.steps.forEach((s, i) => {
-                html += `<div class="step-row"><div class="step-num">${i+1 < 10 ? '0'+(i+1) : i+1}</div><div>${s}</div></div>`;
-            });
-            document.getElementById('steps-content').innerHTML = html;
+            const r = recipes[key];
+            document.getElementById('recipe-title').innerText = r.title;
+            let h = "";
+            r.steps.forEach((s, i) => { h += `<div class="step-row"><div class="step-num">${i+1}</div><div>${s}</div></div>`; });
+            document.getElementById('steps-content').innerHTML = h;
             window.scrollTo(0,0);
         }
     </script>
 </body>
-                                                                                                                                                  </html>
+            </html>
             
