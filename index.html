@@ -62,6 +62,7 @@
         .step-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
         .step-num { color: var(--spice); font-weight: bold; min-width: 35px; font-family: 'Montserrat'; font-size: 1.2rem; }
         .lab-data-tag { display: inline-block; background: #f0f0f0; padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat'; font-size: 0.7rem; color: #666; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .materials-box { background: #fff; padding: 20px; border: 1px dashed var(--accent); margin-bottom: 30px; border-radius: 8px; }
 
         /* CONTACT SECTION */
         .contact-section { padding: 80px 0; background: white; border-top: 1px solid #eee; margin-top: 60px; }
@@ -110,10 +111,13 @@
             <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=1000">
             <div style="padding: 25px; text-align: center;"><h3>04. Nitrogen Mango Sphere</h3></div>
         </div>
-        
         <div class="dish-card" onclick="openRecipe('rasmalai')">
             <img src="https://images.unsplash.com/photo-1594179047519-f347310d3322?w=1000">
             <div style="padding: 25px; text-align: center;"><h3>05. Molecular Saffron Rasmalai</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('eggfire')">
+            <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>06. Egg Fire Rice 🍚</h3></div>
         </div>
 
         <section class="lab-notes-container">
@@ -152,6 +156,7 @@
     <div id="recipe-page">
         <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 30px;">← BACK TO COLLECTION</p>
         <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; border-bottom: 2px solid var(--accent); padding-bottom: 10px;"></h1>
+        <div id="materials-list" class="materials-box"></div>
         <div id="steps-content"></div>
     </div>
 
@@ -166,61 +171,61 @@
         const recipes = {
             makhani: { 
                 title: "Execution: Smoked Makhani Sphere", 
+                materials: "Materials: Sous-vide Circulator, Vacuum Sealer, N2O Siphon, Hickory Wood Chips. Ingredients: 30mm Paneer, Saffron Milk, Roma Tomato Reduction, Cold Emulsified Butter, Sea Salt.",
                 steps: [
                     { text: "Precision cut Malai Paneer into 30mm cubes for uniform heat distribution.", tag: "Unit: 30mm³" },
                     { text: "Infuse 100ml milk with grade-A saffron strands for 30 minutes.", tag: "Time: 1800s" },
                     { text: "Vacuum-seal the paneer with the infusion to force flavor into the molecular structure.", tag: "Pressure: -0.8 Bar" },
                     { text: "Sous-vide at exactly 65°C for 20 minutes to achieve perfect protein denaturation.", tag: "Temp: 65°C" },
-                    { text: "Roast Roma tomatoes until charred; blend and strain through a fine chinois.", tag: "Filter: 100 Microns" },
-                    { text: "Emulsify the sauce with cold butter to create a professional high-gloss finish.", tag: "Method: Emulsion" },
-                    { text: "Charge a siphon with N2O and infuse Hickory smoke for 5 minutes.", tag: "Gas: N2O + Smoke" },
-                    { text: "Express the Smoked Makhani Foam over the seared paneer and serve.", tag: "Phase: Foam" }
+                    { text: "Charge a siphon with N2O and Hickory smoke for 5 minutes over the sauce.", tag: "Gas: N2O + Smoke" }
                 ] 
             },
             biryani: { 
                 title: "Execution: Modern Dum Biryani", 
+                materials: "Materials: Heavy Copper Vessel, pH Meter, Vacuum Marinator, Dehydrator. Ingredients: 2-Year Aged Basmati, Protein Essence (Yakhni), Papain Enzyme, Pink Himalayan Salt, Fried Alliums.",
                 steps: [
                     { text: "Age Basmati rice for 2 years to ensure optimal starch crystallization.", tag: "Age: 24 Months" },
-                    { text: "Calibrate soaking water to a neutral pH of 7.0.", tag: "pH Level: 7.0" },
-                    { text: "Extract protein essence (Yakhni) from meat via slow-simmering at 85°C.", tag: "Temp: 85°C" },
+                    { text: "Calibrate soaking water to a neutral pH of 7.0 using the digital meter.", tag: "pH Level: 7.0" },
                     { text: "Vacuum-marinate meat with papaya enzymes for accelerated tenderization.", tag: "Enzyme: Papain" },
-                    { text: "Dehydrate alliums at 60°C for 12 hours for a unique structural crunch.", tag: "Method: Dehydration" },
-                    { text: "Par-boil rice until 70% gelatinization is reached.", tag: "State: 70% Gel" },
-                    { text: "Layer components in a heavy copper vessel and seal with dough.", tag: "Material: Copper" },
                     { text: "Apply constant Dum heat for 42 minutes to equalize atmospheric pressure.", tag: "Time: 42 Min" }
                 ] 
             },
             rabri: { 
                 title: "Execution: Cryogenic Rabri Cloud", 
+                materials: "Materials: Evaporator, High-RPM Whisk, Dewars Flask. Ingredients: Full-fat Buffalo Milk, Liquid Nitrogen, Organic Jaggery, 24k Gold Leaf, Pistachio Soil, Fleur de Sel.",
                 steps: [
-                    { text: "Reduce full-fat milk by 70% volume via slow evaporation.", tag: "Reduction: 70%" },
-                    { text: "Infuse with Saffron and organic palm jaggery.", tag: "Infusion: Natural" },
-                    { text: "Chill the rabri base to exactly 4°C to prepare for flash-freezing.", tag: "Pre-chill: 4°C" },
-                    { text: "Introduce Liquid Nitrogen (-196°C) while whisking at high RPM.", tag: "Cryo: -196°C" },
-                    { text: "Capture the resulting 'frozen clouds' and place atop pistachio soil.", tag: "State: Solid Gas" },
-                    { text: "Add rosewater pearls and edible 24k gold leaf for high-end aesthetic.", tag: "Detail: 24k Gold" }
+                    { text: "Reduce full-fat milk by 70% volume via slow evaporation at controlled temp.", tag: "Reduction: 70%" },
+                    { text: "Introduce Liquid Nitrogen (-196°C) while whisking at high RPM for aeration.", tag: "Cryo: -196°C" },
+                    { text: "Capture the resulting 'frozen clouds' and plate atop salted pistachio soil.", tag: "State: Solid Gas" }
                 ] 
             },
             mango: { 
                 title: "Execution: Nitrogen Mango Sphere", 
+                materials: "Materials: Spherification Spoons, pH Calibrator, Nitrogen Bath. Ingredients: Alphonso Pulp, Calcium Lactate, Sodium Alginate, Citric Acid, Distilled Water, Mango Malic Salt.",
                 steps: [
-                    { text: "Extract pure pulp from premium Alphonso mangoes.", tag: "Origin: Alphonso" },
-                    { text: "Calibrate the pulp acidity to 4.5 pH for optimal spherification.", tag: "pH Level: 4.5" },
-                    { text: "Prepare a Calcium Lactate bath for the molecular drop process.", tag: "Bath: Calcium" },
-                    { text: "Execute spherification; rinse spheres in pH-balanced water.", tag: "Method: Spherification" },
-                    { text: "Submerge spheres in Liquid Nitrogen for exactly 5 seconds.", tag: "Cryo-Dip: 5s" },
-                    { text: "Fracture the outer shell to reveal the liquid interior.", tag: "Physics: Fracture" }
+                    { text: "Extract pure pulp from premium Alphonso mangoes and filter for 100% purity.", tag: "Origin: Alphonso" },
+                    { text: "Calibrate the pulp acidity to 4.5 pH for optimal molecular bonding.", tag: "pH Level: 4.5" },
+                    { text: "Execute spherification in Calcium bath; submerge in Nitrogen for 5 seconds.", tag: "Cryo-Dip: 5s" }
                 ] 
             },
             rasmalai: { 
                 title: "Execution: Molecular Saffron Rasmalai", 
+                materials: "Materials: Protein Separator, Vacuum Compressor, Calcium Bath. Ingredients: Buffalo Milk Curds, Cardamom Extract, Saffron syrup (1.25 SG), Reverse Spherification Salts, Micro-Pistachio powder.",
                 steps: [
-                    { text: "Extract pure protein curds from high-fat buffalo milk.", tag: "Fat: 8%" },
-                    { text: "Calibrate the saffron syrup to a specific gravity of 1.25.", tag: "SG: 1.25" },
-                    { text: "Vacuum-compress the curds with saffron essence to eliminate air pockets.", tag: "Pressure: -0.9 Bar" },
-                    { text: "Execute reverse spherification for the liquid cardamom center.", tag: "Bath: Calcium" },
-                    { text: "Flash-chill at -20°C to create a crisp outer texture.", tag: "Temp: -20°C" },
-                    { text: "Dehydrate pistachios into a fine 50-micron powder for the soil base.", tag: "Filter: 50μm" }
+                    { text: "Extract pure protein curds; calibrate saffron syrup to specific gravity of 1.25.", tag: "SG: 1.25" },
+                    { text: "Vacuum-compress curds with essence to remove oxygen and densify texture.", tag: "Pressure: -0.9 Bar" },
+                    { text: "Execute reverse spherification for the liquid center using Calcium salts.", tag: "Bath: Calcium" }
+                ] 
+            },
+            eggfire: { 
+                title: "Execution: Egg Fire Rice 🍚", 
+                materials: "Materials: Carbon Steel Wok, Infrared Thermometer, Rice Cooler. Ingredients: Cold Long-Grain Rice, Pasture-Raised Eggs, MSG, Toasted Sesame Oil, Light Soy Sauce, Smoked Sea Salt, Scallions.",
+                steps: [
+                    { text: "Pre-chill long-grain rice to 4°C to separate starch grains and prevent sticking.", tag: "Temp: 4°C" },
+                    { text: "Heat Carbon Steel Wok until infrared thermometer reads 250°C (Wok Hei range).", tag: "Wok Hei: 250°C" },
+                    { text: "Flash-sear eggs with Smoked Sea Salt for a Maillard-reaction savory crust.", tag: "Salt: Smoked Sea" },
+                    { text: "Toss rice at high speed for maximum heat distribution and smoke infusion.", tag: "Motion: High RPM" },
+                    { text: "Finish with light soy sauce and toasted sesame oil for aromatic lipid binding.", tag: "Finish: Lipid Bind" }
                 ] 
             }
         };
@@ -230,6 +235,7 @@
             document.getElementById('recipe-page').style.display = 'block';
             const r = recipes[key];
             document.getElementById('recipe-title').innerText = r.title;
+            document.getElementById('materials-list').innerText = r.materials;
             let h = "";
             r.steps.forEach((s, i) => { 
                 h += `<div class="step-row"><div class="step-num">${i+1}</div><div><p style="margin:0;">${s.text}</p><span class="lab-data-tag">${s.tag}</span></div></div>`; 
@@ -240,4 +246,4 @@
     </script>
 </body>
                 </html>
-                        
+                
