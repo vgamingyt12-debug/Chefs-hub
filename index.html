@@ -8,43 +8,40 @@
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
         :root { --bg-warm: #fdfaf5; --spice: #b35900; --text-deep: #2c1a0a; --accent: #d4a373; --sage: #8a9a5b; }
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; padding: 0; overflow-x: hidden; }
+        
         #welcome-screen { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(44, 26, 10, 0.85), rgba(44, 26, 10, 0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200'); background-size: cover; color: #fff; }
         .chef-title { font-size: 3.5rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; text-transform: uppercase; }
         .signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--accent); margin-top: 10px; }
         .cool-cook-tag { font-family: 'Montserrat'; font-size: 0.8rem; letter-spacing: 4px; background: var(--spice); padding: 8px 25px; border-radius: 50px; margin-top: 15px; color: white; }
-        .welcome-msg { max-width: 600px; font-size: 1.1rem; line-height: 1.6; margin: 25px 0; color: #ddd; font-style: italic; }
+        
         #gallery-page, #recipe-page { display: none; padding: 40px 5%; max-width: 1000px; margin: auto; }
-        .vision-section { padding: 60px 0; text-align: center; border-bottom: 1px solid #eee; background: white; margin-bottom: 40px; }
         .dish-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; margin-bottom: 40px; border: 1px solid #f0f0f0; }
         .dish-card img { width: 100%; height: 450px; object-fit: cover; }
+        
         .lab-notes-container { padding: 40px 0; text-align: left; }
         .note-card { background: white; padding: 25px; border-left: 5px solid var(--sage); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .note-date { font-family: 'Montserrat'; font-size: 0.7rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; }
-        .step-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
-        .step-num { color: var(--spice); font-weight: bold; min-width: 35px; font-family: 'Montserrat'; font-size: 1.2rem; }
-        .materials-section { background: #fff; padding: 20px; border: 1px dashed var(--accent); margin-bottom: 30px; border-radius: 8px; font-size: 0.9rem; line-height: 1.6; }
+        
+        .step-row { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .step-num { color: var(--spice); font-weight: bold; min-width: 35px; font-family: 'Montserrat'; }
+        .materials-section { background: #fff; padding: 25px; border: 1px dashed var(--accent); margin-bottom: 30px; border-radius: 8px; line-height: 1.6; }
+
         .contact-section { padding: 80px 0; background: white; border-top: 1px solid #eee; margin-top: 60px; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
-        .btn-sage { background: var(--sage); color: white; padding: 18px 35px; border: none; border-radius: 4px; cursor: pointer; font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; width: 100%; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .btn-sage { background: var(--sage); color: white; padding: 18px 35px; border: none; border-radius: 4px; cursor: pointer; font-family: 'Montserrat'; text-transform: uppercase; width: 100%; font-weight: bold; }
         .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; }
-        .footer-legal { padding: 60px; background: #1a1006; color: #888; text-align: center; font-size: 0.75rem; letter-spacing: 1px; margin-top: 40px; }
+        .footer-legal { padding: 60px; background: #1a1006; color: #888; text-align: center; font-size: 0.75rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
+
     <div id="welcome-screen">
         <h1 class="chef-title">Chefs-Hub</h1>
         <div class="signature">B. Vishnudhar Reddy</div>
         <div class="cool-cook-tag">Cool Cook | Founder</div>
-        <div class="welcome-msg">"A premium digital asset merging technical MPC engineering with modern Indian gastronomy."</div>
-        <button class="btn-spice" onclick="enterSite()">View Portfolio</button>
+        <button class="btn-spice" style="margin-top: 25px;" onclick="enterSite()">View Portfolio</button>
     </div>
 
     <div id="gallery-page">
-        <div class="vision-section">
-            <h2 style="font-family: 'Montserrat'; letter-spacing: 5px; font-weight: 300;">THE INNOVATION LAB</h2>
-            <p style="color: #666;">Showcasing 7 technical recipes and scientific flavor models for 2026.</p>
-        </div>
-
         <div class="dish-card" onclick="openRecipe('makhani')"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000"><div style="padding:25px; text-align:center;"><h3>01. Smoked Makhani Sphere</h3></div></div>
         <div class="dish-card" onclick="openRecipe('biryani')"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000"><div style="padding:25px; text-align:center;"><h3>02. Deconstructed Dum Biryani</h3></div></div>
         <div class="dish-card" onclick="openRecipe('rabri')"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000"><div style="padding:25px; text-align:center;"><h3>03. Cryogenic Rabri Cloud</h3></div></div>
@@ -56,7 +53,7 @@
         <section class="lab-notes-container">
             <h2 style="font-family: 'Montserrat'; letter-spacing: 4px; font-weight: 300; text-transform: uppercase;">Laboratory Notes</h2>
             <div class="note-card">
-                <span class="note-date">FEBRUARY 28, 2026</span>
+                <span style="font-family: 'Montserrat'; font-size: 0.7rem; color: #aaa;">FEBRUARY 28, 2026</span>
                 <p style="font-style: italic; color: #444; margin-top: 10px;">"Currently calibrating pH levels for deconstructed Rasmalai. Aiming for 4.2 pH for structural integrity."</p>
             </div>
         </section>
@@ -79,24 +76,64 @@
 
     <div id="recipe-page">
         <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 30px;">← BACK</p>
-        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; border-bottom: 2px solid var(--accent);"></h1>
+        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; border-bottom: 2px solid var(--accent); padding-bottom: 10px;"></h1>
         <div id="materials-list" class="materials-section"></div>
         <div id="steps-content"></div>
     </div>
 
     <script>
         function enterSite() { document.getElementById('welcome-screen').style.display = 'none'; document.getElementById('recipe-page').style.display = 'none'; document.getElementById('gallery-page').style.display = 'block'; window.scrollTo(0,0); }
+        
         const recipes = {
-            makhani: { title: "01. Smoked Makhani Sphere", materials: "Materials: Sous-vide, N2O Siphon. Ingredients: 30mm Paneer, Saffron Milk, Sea Salt.", steps: ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7", "Step 8", "Step 9", "Step 10", "Step 11", "Step 12", "Step 13", "Step 14", "Step 15", "Step 16", "Step 17", "Step 18", "Step 19", "Step 20"] },
-            biryani: { title: "02. Deconstructed Dum Biryani", materials: "Materials: pH Meter. Ingredients: Aged Basmati, Yakhni.", steps: ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7", "Step 8", "Step 9", "Step 10", "Step 11", "Step 12", "Step 13", "Step 14", "Step 15", "Step 16", "Step 17", "Step 18", "Step 19", "Step 20"] },
-            rabri: { title: "03. Cryogenic Rabri Cloud", materials: "Materials: Dewars Flask. Ingredients: Buffalo Milk, Nitrogen.", steps: ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7", "Step 8", "Step 9", "Step 10", "Step 11", "Step 12", "Step 13", "Step 14", "Step 15", "Step 16", "Step 17", "Step 18", "Step 19", "Step 20"] },
-            mango: { title: "04. Nitrogen Mango Sphere", materials: "Materials: pH Meter. Ingredients: Alphonso, Calcium.", steps: ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7", "Step 8", "Step 9", "Step 10", "Step 11", "Step 12", "Step 13", "Step 14", "Step 15", "Step 16", "Step 17", "Step 18", "Step 19", "Step 20"] },
-            rasmalai: { title: "05. Molecular Saffron Rasmalai", materials: "Materials: Spherification Kit. Ingredients: Curds, Saffron.", steps: ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7", "Step 8", "Step 9", "Step 10", "Step 11", "Step 12", "Step 13", "Step 14", "Step 15", "Step 16", "Step 17", "Step 18", "Step 19", "Step 20"] },
-            eggfire: { title: "06. Egg Fire Rice 🍚", materials: "Materials: Wok. Ingredients: Rice, Eggs, MSG.", steps: ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7", "Step 8", "Step 9", "Step 10", "Step 11", "Step 12", "Step 13", "Step 14", "Step 15", "Step 16", "Step 17", "Step 18", "Step 19", "Step 20"] },
-            kfc: { title: "07. Lab-Spec Chicken KFC 🍗", materials: "Materials: Pressure Fryer. Ingredients: Chicken, 11 Spices.", steps: ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7", "Step 8", "Step 9", "Step 10", "Step 11", "Step 12", "Step 13", "Step 14", "Step 15", "Step 16", "Step 17", "Step 18", "Step 19", "Step 20"] }
+            makhani: {
+                title: "01. Smoked Makhani Sphere",
+                materials: "Materials: Sous-vide Circulator, Vacuum Sealer, N2O Siphon, Hickory Wood Chips. Ingredients: 30mm Paneer, Saffron Milk, Cold Emulsified Butter, Micro-Salt Crystals.",
+                steps: ["Sanitize station and calibrate digital scales.", "Cut Malai Paneer into 30mm³ technical cubes.", "Measure 100ml buffalo milk (8% fat content).", "Infuse milk with saffron for 1800 seconds.", "Vacuum-seal paneer at -0.8 Bar with infusion.", "Preheat sous-vide bath to exactly 65°C.", "Submerge vacuum bag for 20 minutes.", "Monitor protein denaturation state.", "Analyze Roma tomato acidity via pH meter.", "Roast tomatoes until skin char is achieved.", "Blend and chinois-filter to 100 microns.", "Emulsify butter at high shear RPM.", "Inject hickory smoke into N2O siphon.", "Charge siphon with Hickory/N2O mixture.", "Apply pressurized smoke to makhani base.", "Execute molecular sphere encapsulation.", "Check emulsion viscosity levels.", "Monitor surface tension of seared paneer.", "Perform final thermal core verification.", "Express smoke foam and sign off."]
+            },
+            biryani: {
+                title: "02. Deconstructed Dum Biryani",
+                materials: "Materials: Copper Vessel, pH Calibrator, Vacuum Marinator, Dehydrator. Ingredients: 24-Month Aged Basmati, Protein Essence (Yakhni), Papain Enzyme, Pink Himalayan Salt, Saffron Vapor.",
+                steps: ["Verify age of Basmati (minimum 24 months).", "Calibrate soaking water to neutral pH 7.0.", "Measure rice starch crystallization index.", "Pre-soak rice for exactly 30 minutes.", "Extract protein essence (Yakhni) at 85°C.", "Introduce papain enzymes to meat protein.", "Vacuum-marinate at high pressure (-0.9 Bar).", "De-glaze heavy copper vessel.", "Dehydrate alliums at 60°C for 12 hours.", "Par-boil rice to 70% gelatinization state.", "Layer rice and protein via spiral logic.", "Seal vessel with structural wheat dough.", "Apply constant Dum heat for 42 minutes.", "Monitor internal atmospheric pressure.", "Equilibrate aromatic spice concentration.", "Verify lipid binding of saffron infusion.", "Prepare saffron vapor air suspension.", "Execute grain-by-grain plating.", "Validate MPC aromatic signature.", "Seal with Cool Cook signature."]
+            },
+            rabri: {
+                title: "03. Cryogenic Rabri Cloud",
+                materials: "Materials: Evaporator, Industrial Whisk, Dewars Flask. Ingredients: Buffalo Milk (8.5% fat), Liquid Nitrogen, Organic Palm Jaggery, 24k Gold Leaf, Pistachio Soil (500μm).",
+                steps: ["Sanitize high-fat buffalo milk (8.5%).", "Begin 70% volume reduction sequence.", "Control evaporation via thermal probe.", "Infuse with organic palm jaggery.", "Verify jaggery Brix level via refractometer.", "Analyze reduction viscosity index.", "Pre-chill Rabri base to exactly 4°C.", "Sanitize Dewars flask for Nitrogen.", "Equip high-RPM industrial whisk.", "Introduce Liquid Nitrogen at -196°C.", "Monitor rapid flash-freeze cycle.", "Capture solid-gas cloud structures.", "Prepare salted pistachio soil base.", "Verify soil particle size (500μm).", "Platings of frozen rabri clouds.", "Apply 24k edible gold leaf accents.", "Introduce rosewater molecular pearls.", "Analyze cloud dissipation rate.", "Verify aesthetic MPC symmetry.", "Release for Cool Cook service."]
+            },
+            mango: {
+                title: "04. Nitrogen Mango Sphere",
+                materials: "Materials: Spherification Spoons, pH Meter, Nitrogen Bath. Ingredients: Alphonso Mango Pulp, Calcium Lactate, Sodium Alginate, Citric Acid, Distilled Water, Malic Mango Salt.",
+                steps: ["Extract Alphonso pulp via 100μm filter.", "Calibrate pulp acidity to 4.5 pH.", "Measure Sodium Alginate (0.5% concentration).", "Prepare Calcium Lactate bath (1%).", "Verify distilled water purity levels.", "Execute drop-spherification process.", "Monitor molecular shell formation.", "Rinse spheres in pH-neutral bath.", "Prepare Liquid Nitrogen bath (-196°C).", "Execute 5-second Nitrogen submerge.", "Analyze shell fracture physics.", "Verify liquid core integrity.", "Prepare honey-cardamom essence.", "Execute fracture plate assembly.", "Apply malic mango salt garnish.", "Verify thermal contrast (Frozen/Liquid).", "Analyze sphere surface tension.", "Capture visual vapor fracture.", "Execute MPC flavor balancing.", "Sign off by Cool Cook."]
+            },
+            rasmalai: {
+                title: "05. Molecular Saffron Rasmalai",
+                materials: "Materials: Protein Separator, Vacuum Compressor, Calcium Bath. Ingredients: Buffalo Milk Curds, Cardamom Extract, Saffron syrup (1.25 SG), Reverse Spherification Salts, Micro-Pistachio powder.",
+                steps: ["Separate protein curds from fat content.", "Verify curd moisture via weight test.", "Calibrate saffron syrup to 1.25 SG.", "Vacuum-compress curds to densify.", "Prepare Calcium bath for center logic.", "Execute reverse spherification process.", "Encapsulate cardamom liquid center.", "Rinse spheres in distilled water.", "Analyze syrup absorption rate index.", "Flash-chill at -20°C for texture.", "Prepare pistachio soil (50μm powder).", "Verify micro-powder consistency.", "Assemble saffron compressed base.", "Platings of cardamom liquid sphere.", "Introduce saffron cloud vapor.", "Verify structural integrity of curds.", "Check pH of final saffron syrup.", "Perform visual MPC symmetry test.", "Validate 2026 tech standards.", "Approve by Cool Cook."]
+            },
+            eggfire: {
+                title: "06. Egg Fire Rice 🍚",
+                materials: "Materials: Carbon Steel Wok, Infrared Thermometer, Rice Cooler. Ingredients: Long-Grain Rice (4°C), Pasture-Raised Eggs, MSG, Toasted Sesame Oil, Light Soy Sauce, Smoked Sea Salt, Scallions.",
+                steps: ["Pre-chill long-grain rice to 4°C.", "Analyze rice grain separation index.", "Clean carbon steel wok with oil.", "Heat wok to 250°C (Wok Hei range).", "Verify temp via infrared thermometer.", "Whisk eggs with Smoked Sea Salt.", "Introduce rice to 250°C environment.", "Execute high-RPM technical wok toss.", "Analyze Maillard-reaction on eggs.", "Flash-sear proteins at high temp.", "Monitor smoke infusion into grains.", "Introduce light soy-lipid binding.", "Apply toasted sesame oil aromatics.", "Check moisture evaporation rate.", "Add MSG for glutamate balancing.", "Toss scallions for thermal crunch.", "Verify Wok Hei aromatic signature.", "Check rice grain structural bite.", "Analyze visual color contrast.", "Final sign by Cool Cook."]
+            },
+            kfc: {
+                title: "07. Lab-Spec Chicken KFC 🍗",
+                materials: "Materials: Pressure Fryer, Brine Tank, Centrifuge. Ingredients: Chicken Thighs, MSG, 11 Secret Spices, Buttermilk, Cold-Pressed Lipid Oil, Smoked Sea Salt.",
+                steps: ["Sanitize station and calibrate pressure fryer.", "Measure protein core temp (Aim: 4°C).", "Prepare 6% saline brine solution.", "Submerge chicken in brine for 12 hours.", "Analyze moisture absorption index.", "Centrifuge '11 Secret Spices' for uniformity.", "Calibrate flour density for optimal coating.", "Prepare buttermilk bath with lactic acid check.", "Dip protein into lipid-binding buttermilk.", "Apply primary spice-flour coating.", "Execute second 'Double-Dip' sequence.", "Verify surface tension of the breading.", "Heat oil to exactly 175°C (Infrared check).", "Introduce chicken to the high-pressure fryer.", "Monitor internal pressure (Seal: 12 PSI).", "Flash-fry for 360 seconds for Maillard crust.", "Check internal thermal core (Aim: 74°C).", "De-grease via high-velocity air dryer.", "Apply final Smoked Sea Salt mist.", "Final sign-off by Cool Cook."]
+            }
         };
-        function openRecipe(key) { document.getElementById('gallery-page').style.display = 'none'; document.getElementById('recipe-page').style.display = 'block'; const r = recipes[key]; document.getElementById('recipe-title').innerText = r.title; document.getElementById('materials-list').innerHTML = `<strong>Required Materials:</strong><br>${r.materials}`; let h = ""; r.steps.forEach((s, i) => { h += `<div class="step-row"><div class="step-num">${i+1}</div><div>${s}</div></div>`; }); document.getElementById('steps-content').innerHTML = h; window.scrollTo(0,0); }
+
+        function openRecipe(key) {
+            document.getElementById('gallery-page').style.display = 'none';
+            document.getElementById('recipe-page').style.display = 'block';
+            const r = recipes[key];
+            document.getElementById('recipe-title').innerText = r.title;
+            document.getElementById('materials-list').innerHTML = `<strong>Required Materials & Ingredients:</strong><br>${r.materials}`;
+            let h = "";
+            r.steps.forEach((s, i) => { h += `<div class="step-row"><div class="step-num">${i+1}</div><div>${s}</div></div>`; });
+            document.getElementById('steps-content').innerHTML = h;
+            window.scrollTo(0,0);
+        }
     </script>
 </body>
-                                                                                                                                                  </html>
+            </html>
             
