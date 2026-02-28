@@ -73,23 +73,43 @@
             window.scrollTo(0,0);
         }
 
-        const commonSteps = [
-            "Sanitize laboratory station.", "Calibrate digital scales to 0.01g.", "Prepare distilled water bath.",
-            "Sterilize all glass beakers.", "Check N2O siphon pressure.", "Measure core ingredient temperature.",
-            "Analyze pH levels of base liquid.", "Execute primary molecular bonding.", "Monitor viscosity changes.",
-            "Adjust saline concentration.", "Apply vacuum seal at -0.9 Bar.", "Verify thermal consistency.",
-            "Infuse aromatic lipids.", "Begin secondary structural formation.", "Execute flash-chill sequence.",
-            "Perform surface tension test.", "Capture molecular encapsulation.", "Dehydrate garnishes at 60°C.",
-            "Assemble final structural components.", "Verify signature Cool Cook plating."
-        ];
-
         const recipes = {
-            makhani: { title: "01. Smoked Makhani Sphere", steps: commonSteps },
-            biryani: { title: "02. Deconstructed Dum Biryani", steps: commonSteps },
-            rabri: { title: "03. Cryogenic Rabri Cloud", steps: commonSteps },
-            mango: { title: "04. Nitrogen Mango Sphere", steps: commonSteps },
-            rasmalai: { title: "05. Molecular Saffron Rasmalai", steps: commonSteps },
-            eggfire: { title: "06. Egg Fire Rice 🍚", steps: commonSteps }
+            makhani: {
+                title: "01. Smoked Makhani Sphere",
+                steps: [
+                    "Sanitize station and calibrate Sous-vide circulator.", "Cut Malai Paneer into 30mm³ technical cubes.", "Measure 100ml buffalo milk (8% fat).", "Infuse with grade-A saffron for 1800s.", "Vacuum-seal paneer at -0.8 Bar with infusion.", "Denature proteins at exactly 65°C for 20 mins.", "Analyze tomato acidity; calibrate to pH 4.5.", "Roast Roma tomatoes and chinois-filter (100μm).", "Emulsify cold butter at high shear speed.", "Inject Hickory smoke into N2O siphon.", "Infuse sauce via siphon under pressure.", "Execute molecular sphere encapsulation.", "Check viscosity of Makhani emulsion.", "Monitor surface tension of seared paneer.", "Verify thermal core of the sphere.", "Express hickory foam over seared cubes.", "Assemble with micro-salt crystals.", "Capture vapor for presentation.", "Finalize visual MPC structural check.", "Sign off as Cool Cook."
+                ]
+            },
+            biryani: {
+                title: "02. Deconstructed Dum Biryani",
+                steps: [
+                    "Verify age of Basmati (min 24 months).", "Calibrate soaking water to neutral pH 7.0.", "Analyze rice starch crystallization.", "Extract protein essence (Yakhni) at 85°C.", "Introduce papain enzymes to meat.", "Vacuum-marinate at high pressure.", "Execute de-glazing of copper vessel.", "Dehydrate alliums at 60°C for 12 hours.", "Monitor rice gelatinization state (70%).", "Seal vessel with dough for Dum logic.", "Analyze internal atmospheric pressure.", "Apply consistent heat for 42 mins.", "Equilibrate spice concentrations.", "Verify lipid binding of saffron rice.", "Platings via spiral technique.", "Introduce saffron vapor air.", "Check moisture levels of protein curds.", "Execute deconstructed grain assembly.", "Validate MPC aromatic profile.", "Seal with Cool Cook signature."
+                ]
+            },
+            rabri: {
+                title: "03. Cryogenic Rabri Cloud",
+                steps: [
+                    "Select high-fat buffalo milk (8.5% fat).", "Begin 70% volume reduction process.", "Control evaporation temp via thermometer.", "Infuse with organic palm jaggery.", "Measure jaggery Brix level.", "Analyze reduction viscosity.", "Pre-chill Rabri base to exactly 4°C.", "Prepare Dewars flask with Liquid Nitrogen.", "Equip high-RPM industrial whisk.", "Introduce Nitrogen at -196°C.", "Monitor rapid flash-freeze sequence.", "Capture solid-gas cloud structures.", "Prepare salted pistachio soil base.", "Verify pistachio particle size (500μm).", "Platings of frozen rabri clouds.", "Apply 24k edible gold leaf.", "Introduce rosewater molecular pearls.", "Analyze cloud dissipation rate.", "Verify aesthetic MPC symmetry.", "Release for Cool Cook service."
+                ]
+            },
+            mango: {
+                title: "04. Nitrogen Mango Sphere",
+                steps: [
+                    "Extract Alphonso pulp via fine filter.", "Calibrate pulp acidity to 4.5 pH.", "Prepare Sodium Alginate bath.", "Calibrate Calcium Lactate concentration.", "Verify distilled water purity.", "Execute drop-spherification process.", "Monitor molecular shell formation.", "Rinse spheres in pH-balanced bath.", "Prepare Liquid Nitrogen bath.", "Execute 5-second Nitrogen submerge.", "Analyze shell fracture physics.", "Verify liquid core integrity.", "Prepare honey-cardamom essence.", "Execute fracture plate assembly.", "Apply malic mango salt.", "Verify thermal contrast (Cold/Frozen).", "Analyze sphere surface tension.", "Capture visual vapor fracture.", "Execute MPC flavor balancing.", "Sign off by Cool Cook."
+                ]
+            },
+            rasmalai: {
+                title: "05. Molecular Saffron Rasmalai",
+                steps: [
+                    "Separate protein curds from fat.", "Verify curd moisture content.", "Calibrate saffron syrup to 1.25 SG.", "Vacuum-compress curds to densify.", "Prepare Calcium bath for center.", "Execute reverse spherification.", "Encapsulate cardamom liquid.", "Rinse spheres in distilled water.", "Analyze syrup absorption rate.", "Flash-chill at -20°C for texture.", "Prepare pistachio soil (50μm).", "Verify micro-powder consistency.", "Assemble saffron compressed base.", "Platings of cardamom liquid sphere.", "Introduce saffron cloud vapor.", "Verify structural integrity of curds.", "Check pH of final syrup.", "Perform visual MPC symmetry test.", "Validate 2026 tech standards.", "Approve by Cool Cook."
+                ]
+            },
+            eggfire: {
+                title: "06. Egg Fire Rice 🍚",
+                steps: [
+                    "Pre-chill long-grain rice to 4°C.", "Analyze rice grain separation.", "Heat carbon steel wok to 250°C.", "Verify Wok Hei via infrared temp.", "Select pasture-raised high-protein eggs.", "Whisk eggs with Smoked Sea Salt.", "Introduce rice to 250°C environment.", "Execute high-RPM wok toss.", "Analyze Maillard-reaction on eggs.", "Flash-sear proteins at high temp.", "Monitor smoke infusion into grains.", "Introduce light soy-lipid binding.", "Apply toasted sesame oil aromatics.", "Check moisture evaporation rate.", "Add MSG for glutamate balancing.", "Toss scallions for thermal crunch.", "Verify Wok Hei aromatic signature.", "Check rice grain structural bite.", "Analyze visual color contrast.", "Final sign by Cool Cook."
+                ]
+            }
         };
 
         function openRecipe(key) {
@@ -106,5 +126,5 @@
         }
     </script>
 </body>
-                                      </html>
-                                      
+                                                                                                                                                                                                                                              </html>
+    
