@@ -9,23 +9,23 @@
         :root { --bg-warm: #fdfaf5; --spice: #b35900; --text-deep: #2c1a0a; --accent: #d4a373; }
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; overflow-x: hidden; }
         
-        /* PREMIUM WELCOME */
+        /* WELCOME */
         #welcome-screen { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(44, 26, 10, 0.85), rgba(44, 26, 10, 0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200'); background-size: cover; color: #fff; }
         .chef-title { font-size: 3.5rem; letter-spacing: 12px; text-transform: uppercase; color: #f5cc91; margin: 0; }
         .signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--accent); }
-        .cool-cook-tag { font-family: 'Montserrat'; font-size: 0.8rem; letter-spacing: 4px; background: var(--spice); padding: 8px 25px; border-radius: 50px; margin-top: 15px; }
+        .cool-cook-tag { font-family: 'Montserrat'; font-size: 0.8rem; letter-spacing: 4px; background: var(--spice); padding: 8px 25px; border-radius: 50px; margin-top: 15px; color: white; }
 
-        /* BUSINESS OVERVIEW */
-        .vision-section { padding: 60px 10%; background: white; text-align: center; border-bottom: 1px solid #eee; }
-        
-        /* PORTFOLIO GALLERY */
+        /* GALLERY & CARDS */
         #gallery-page, #recipe-page { display: none; padding: 40px 5%; max-width: 900px; margin: auto; }
         .dish-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; margin-bottom: 40px; border: 1px solid #f0f0f0; }
-        .dish-card img { width: 100%; height: 400px; object-fit: cover; }
+        .dish-card img { width: 100%; height: 450px; object-fit: cover; }
         
-        /* LEGAL FOOTER */
-        .legal-footer { padding: 40px; background: #1a1006; color: #888; text-align: center; font-size: 0.7rem; letter-spacing: 1px; }
-        .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+        /* TECH DASH */
+        .tech-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: #2c1a0a; color: #f5cc91; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center; }
+        .spec-item span { display: block; font-weight: bold; font-size: 1.1rem; color: #fff; }
+
+        .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; }
+        .legal-footer { padding: 60px; background: #1a1006; color: #888; text-align: center; font-size: 0.75rem; letter-spacing: 1px; line-height: 2; }
     </style>
 </head>
 <body>
@@ -34,33 +34,45 @@
         <h1 class="chef-title">Chefs-Hub</h1>
         <div class="signature">B. Vishnudhar Reddy</div>
         <div class="cool-cook-tag">Cool Cook | Founder</div>
-        <p style="max-width: 500px; color: #ddd; margin-top: 25px; font-style: italic;">"A premium digital asset merging technical MPC engineering with modern Indian gastronomy."</p>
         <button class="btn-spice" style="margin-top: 30px;" onclick="enterSite()">View Portfolio</button>
     </div>
 
     <div id="gallery-page">
-        <div class="vision-section">
-            <h2 style="font-weight: 300; letter-spacing: 3px;">THE INNOVATION LAB</h2>
-            <p style="color: #666; line-height: 1.8;">Chefs-Hub is a scalable culinary brand focused on molecular precision. This asset includes 4 proprietary technical recipes, scientific data models, and a professional-grade UI.</p>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="font-weight: 300; letter-spacing: 5px;">THE 2026 COLLECTION</h2>
         </div>
 
-        <div style="margin-top: 50px;">
-            <div class="dish-card" onclick="openRecipe('makhani')"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000"><div style="padding: 20px; text-align: center;"><h3>01. Smoked Makhani Sphere</h3></div></div>
-            <div class="dish-card" onclick="openRecipe('biryani')"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000"><div style="padding: 20px; text-align: center;"><h3>02. Modern Dum Biryani</h3></div></div>
-            <div class="dish-card" onclick="openRecipe('rabri')"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1200"><div style="padding: 20px; text-align: center;"><h3>03. Cryogenic Rabri Cloud</h3></div></div>
-            <div class="dish-card" onclick="openRecipe('mango')"><img src="https://images.unsplash.com/photo-1553181239-26038c35c67e?w=1000"><div style="padding: 20px; text-align: center;"><h3>04. Nitrogen Mango Sphere</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('makhani')">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>01. Smoked Makhani Sphere</h3></div>
+        </div>
+
+        <div class="dish-card" onclick="openRecipe('biryani')">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>02. Deconstructed Dum Biryani</h3></div>
+        </div>
+
+        <div class="dish-card" onclick="openRecipe('rabri')">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>03. Cryogenic Rabri Cloud</h3></div>
+        </div>
+
+        <div class="dish-card" onclick="openRecipe('mango')">
+            <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>04. Nitrogen Mango Sphere</h3></div>
         </div>
 
         <div class="legal-footer">
             <p style="color: #ccc; font-size: 0.9rem;">Contact: vishnudharreddybalam@gmail.com</p>
-            <p style="margin-top: 20px;">© 2026 CHEFS-HUB BY B. VISHNUDHAR REDDY. ALL RIGHTS RESERVED.</p>
+            <p>© 2026 CHEFS-HUB BY B. VISHNUDHAR REDDY. ALL RIGHTS RESERVED.</p>
             <p>ASSET VERIFIED FOR SALE ON FLIPPA.COM</p>
         </div>
     </div>
 
     <div id="recipe-page">
-        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold;">← BACK TO ASSET OVERVIEW</p>
+        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold;">← BACK TO COLLECTION</p>
         <h1 id="recipe-title" style="color:var(--spice); font-weight: 300;"></h1>
+        <div id="recipe-meta"></div>
         <div id="steps-content" style="margin-top: 20px;"></div>
     </div>
 
@@ -72,16 +84,17 @@
             window.scrollTo(0,0);
         }
         const recipes = {
-            makhani: { title: "Smoked Makhani Sphere", steps: ["Technical Spherification process.", "Vacuum-sealed infusion.", "Sous-vide execution."] },
-            biryani: { title: "Modern Dum Biryani", steps: ["pH-balanced rice prep.", "Atmospheric Dum pressure."] },
-            rabri: { title: "Cryogenic Rabri Cloud", steps: ["Nitrogen flash-freeze.", "Molecular cloud suspension."] },
-            mango: { title: "Nitrogen Mango Sphere", steps: ["Calcium Spherification.", "Shell fracture technique."] }
+            makhani: { title: "Smoked Makhani Sphere", temp: "65.2°C", pressure: "99% VAC", ph: "6.8 pH", steps: ["Vacuum-sealed infusion.", "Sous-vide execution."] },
+            biryani: { title: "Modern Dum Biryani", temp: "104.8°C", pressure: "1.2 ATM", ph: "7.0 pH", steps: ["pH-balanced rice prep.", "Atmospheric Dum pressure."] },
+            rabri: { title: "Cryogenic Rabri Cloud", temp: "-196°C", pressure: "1.0 ATM", ph: "6.5 pH", steps: ["Nitrogen flash-freeze.", "Molecular cloud suspension."] },
+            mango: { title: "Nitrogen Mango Sphere", temp: "-196°C", pressure: "1.0 ATM", ph: "4.5 pH", steps: ["Calcium Spherification.", "Shell fracture technique."] }
         };
         function openRecipe(key) {
             document.getElementById('gallery-page').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'block';
             const r = recipes[key];
             document.getElementById('recipe-title').innerText = r.title;
+            document.getElementById('recipe-meta').innerHTML = `<div class="tech-specs"><div class="spec-item">TEMP<span>${r.temp}</span></div><div class="spec-item">PRESSURE<span>${r.pressure}</span></div><div class="spec-item">pH<span>${r.ph}</span></div></div>`;
             let h = "";
             r.steps.forEach((s, i) => { h += `<div style="padding:15px 0; border-bottom:1px solid #eee;"><strong>${i+1}.</strong> ${s}</div>`; });
             document.getElementById('steps-content').innerHTML = h;
@@ -89,4 +102,5 @@
         }
     </script>
 </body>
-</html>
+            </html>
+    
