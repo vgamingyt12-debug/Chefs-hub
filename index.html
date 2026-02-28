@@ -9,19 +9,23 @@
         :root { --bg-warm: #fdfaf5; --spice: #b35900; --text-deep: #2c1a0a; --accent: #d4a373; }
         body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; overflow-x: hidden; }
         
-        /* PRESERVING ALL ORIGINAL STYLES */
+        /* WELCOME SCREEN */
         #welcome-screen { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(44, 26, 10, 0.85), rgba(44, 26, 10, 0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200'); background-size: cover; color: #fff; }
-        .chef-title { font-size: 3.5rem; letter-spacing: 12px; text-transform: uppercase; color: #f5cc91; margin: 0; }
-        .signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--accent); }
+        .chef-title { font-size: 3.5rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; text-transform: uppercase; }
+        .signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--accent); margin-top: 10px; }
         .cool-cook-tag { font-family: 'Montserrat'; font-size: 0.8rem; letter-spacing: 4px; background: var(--spice); padding: 8px 25px; border-radius: 50px; margin-top: 15px; color: white; }
+        .welcome-msg { max-width: 600px; font-size: 1.1rem; line-height: 1.6; margin: 25px 0; color: #ddd; font-style: italic; }
 
+        /* INNOVATION LAB SECTION */
         .vision-section { padding: 60px 10%; background: white; text-align: center; border-bottom: 1px solid #eee; }
         .vision-title { font-family: 'Montserrat'; letter-spacing: 5px; font-weight: 300; text-transform: uppercase; margin-bottom: 20px; }
 
+        /* GALLERY & CARDS */
         #gallery-page, #recipe-page { display: none; padding: 40px 5%; max-width: 900px; margin: auto; }
         .dish-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; margin-bottom: 40px; border: 1px solid #f0f0f0; }
         .dish-card img { width: 100%; height: 450px; object-fit: cover; }
         
+        /* STEPS FORMAT */
         .step-row { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
         .step-num { color: var(--spice); font-weight: bold; min-width: 30px; font-family: 'Montserrat'; }
 
@@ -35,7 +39,7 @@
         <h1 class="chef-title">Chefs-Hub</h1>
         <div class="signature">B. Vishnudhar Reddy</div>
         <div class="cool-cook-tag">Cool Cook | Founder</div>
-        <div class="welcome-msg" style="max-width: 600px; font-size: 1.1rem; line-height: 1.6; margin: 25px 0; color: #ddd; font-style: italic;">
+        <div class="welcome-msg">
             "A premium digital asset merging technical MPC engineering with modern Indian gastronomy."
         </div>
         <button class="btn-spice" onclick="enterSite()">View Portfolio</button>
@@ -73,10 +77,9 @@
         </div>
 
         <div class="contact-footer">
-            <p style="color: #ccc; font-size: 0.9rem;">Contact: bestfriend@chefs-hub.com</p>
-            
+            <p style="color: #ccc; font-size: 0.9rem;">Contact: vishnudharreddybalam@gmail.com</p>
             <p>© 2026 CHEFS-HUB BY B. VISHNUDHAR REDDY. ALL RIGHTS RESERVED.</p>
-            <p>ASSET VERIFIED FOR SALE ON FLIPPA.COM</p>
+            <p>Redefining Indian Flavors.COOL COOK</p>
         </div>
     </div>
 
@@ -87,7 +90,6 @@
     </div>
 
     <script>
-        /* SCRIPT REMAINS UNCHANGED */
         function enterSite() {
             document.getElementById('welcome-screen').style.display = 'none';
             document.getElementById('recipe-page').style.display = 'none';
@@ -96,10 +98,57 @@
         }
 
         const recipes = {
-            makhani: { title: "Execution: Smoked Makhani Sphere", steps: ["Vacuum-sealed infusion.", "Sous-vide execution."] },
-            biryani: { title: "Execution: Modern Dum Biryani", steps: ["pH-balanced rice prep.", "Atmospheric Dum pressure."] },
-            rabri: { title: "Execution: Cryogenic Rabri Cloud", steps: ["Nitrogen flash-freeze.", "Molecular cloud suspension."] },
-            mango: { title: "Execution: Nitrogen Mango Sphere", steps: ["Calcium Spherification.", "Shell fracture technique."] }
+            makhani: { 
+                title: "Execution: Smoked Makhani Sphere", 
+                steps: [
+                    "Precision cut Malai Paneer into 30mm cubes for uniform heat distribution.",
+                    "Infuse 100ml milk with grade-A saffron strands for 30 minutes.",
+                    "Vacuum-seal the paneer with the infusion to force flavor into the molecular structure.",
+                    "Sous-vide at exactly 65°C for 20 minutes to achieve perfect texture.",
+                    "Roast Roma tomatoes until charred; blend and strain through a fine chinois.",
+                    "Emulsify the sauce with cold butter to create a professional gloss.",
+                    "Charge a siphon with N2O and infuse Hickory smoke for 5 minutes.",
+                    "Express the Smoked Makhani Foam over the seared paneer and serve."
+                ] 
+            },
+            biryani: { 
+                title: "Execution: Modern Dum Biryani", 
+                steps: [
+                    "Age Basmati rice for 2 years to ensure optimal starch crystallization.",
+                    "Calibrate soaking water to a neutral pH of 7.0.",
+                    "Extract protein essence (Yakhni) from meat via slow-simmering.",
+                    "Vacuum-marinate meat with papaya enzymes for accelerated tenderization.",
+                    "Dehydrate alliums at 60°C for 12 hours for a unique structural crunch.",
+                    "Par-boil rice until 70% gelatinization is reached.",
+                    "Layer components in a heavy copper vessel and seal with dough.",
+                    "Apply constant Dum heat for 42 minutes to equalize atmospheric pressure.",
+                    "Serve with a spiral plating technique and saffron air."
+                ] 
+            },
+            rabri: { 
+                title: "Execution: Cryogenic Rabri Cloud", 
+                steps: [
+                    "Reduce full-fat milk by 70% volume via slow evaporation.",
+                    "Infuse with Saffron and organic palm jaggery.",
+                    "Chill the rabri base to exactly 4°C to prepare for flash-freezing.",
+                    "Introduce Liquid Nitrogen (-196°C) while whisking at high RPM.",
+                    "Capture the resulting 'frozen clouds' and place atop pistachio soil.",
+                    "Add rosewater pearls and edible 24k gold leaf for high-end aesthetic.",
+                    "Serve immediately while the nitrogen vapor is still visible."
+                ] 
+            },
+            mango: { 
+                title: "Execution: Nitrogen Mango Sphere", 
+                steps: [
+                    "Extract pure pulp from premium Alphonso mangoes.",
+                    "Calibrate the pulp acidity to 4.5 pH for optimal spherification.",
+                    "Prepare a Calcium Lactate bath for the molecular drop process.",
+                    "Execute spherification; rinse spheres in pH-balanced water.",
+                    "Submerge spheres in Liquid Nitrogen for exactly 5 seconds.",
+                    "Fracture the outer shell to reveal the liquid interior.",
+                    "Serve on a bed of crushed ice with honey-cardamom essence."
+                ] 
+            }
         };
 
         function openRecipe(key) {
@@ -116,5 +165,5 @@
         }
     </script>
 </body>
-        </html>
-        
+    </html>
+                    
