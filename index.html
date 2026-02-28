@@ -53,14 +53,21 @@
         .dish-card:hover { transform: translateY(-5px); }
         .dish-card img { width: 100%; height: 450px; object-fit: cover; }
 
+        /* LABORATORY NOTES */
+        .lab-notes-container { padding: 40px 0; text-align: left; }
+        .note-card { background: white; padding: 25px; border-left: 5px solid var(--sage); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .note-date { font-family: 'Montserrat'; font-size: 0.7rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; }
+
         /* RECIPE DETAILS */
         .step-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
         .step-num { color: var(--spice); font-weight: bold; min-width: 35px; font-family: 'Montserrat'; font-size: 1.2rem; }
+        .lab-data-tag { display: inline-block; background: #f0f0f0; padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat'; font-size: 0.7rem; color: #666; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
         .materials-section { background: #fff; padding: 20px; border: 1px dashed var(--accent); margin-bottom: 30px; border-radius: 8px; font-size: 0.9rem; line-height: 1.6; }
 
         /* CONTACT SECTION */
         .contact-section { padding: 80px 0; background: white; border-top: 1px solid #eee; margin-top: 60px; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat'; box-sizing: border-box; }
         .btn-sage { background: var(--sage); color: white; padding: 18px 35px; border: none; border-radius: 4px; cursor: pointer; font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; width: 100%; }
         .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; }
         
@@ -88,33 +95,74 @@
             </p>
         </div>
 
-        <div class="dish-card" onclick="openRecipe('makhani')"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000"><div style="padding: 25px; text-align: center;"><h3>01. Smoked Makhani Sphere</h3></div></div>
-        <div class="dish-card" onclick="openRecipe('biryani')"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000"><div style="padding: 25px; text-align: center;"><h3>02. Deconstructed Dum Biryani</h3></div></div>
-        <div class="dish-card" onclick="openRecipe('rabri')"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000"><div style="padding: 25px; text-align: center;"><h3>03. Cryogenic Rabri Cloud</h3></div></div>
-        <div class="dish-card" onclick="openRecipe('mango')"><img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=1000"><div style="padding: 25px; text-align: center;"><h3>04. Nitrogen Mango Sphere</h3></div></div>
-        <div class="dish-card" onclick="openRecipe('rasmalai')"><img src="https://images.unsplash.com/photo-1594179047519-f347310d3322?w=1000"><div style="padding: 25px; text-align: center;"><h3>05. Molecular Saffron Rasmalai</h3></div></div>
-        <div class="dish-card" onclick="openRecipe('eggfire')"><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=1000"><div style="padding: 25px; text-align: center;"><h3>06. Egg Fire Rice 🍚</h3></div></div>
-        <div class="dish-card" onclick="openRecipe('kfc')"><img src="https://images.unsplash.com/photo-1626645738196-c2a7c8d08f58?w=1000"><div style="padding: 25px; text-align: center;"><h3>07. Chicken KFC 🍗</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('makhani')">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>01. Smoked Makhani Sphere</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('biryani')">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>02. Deconstructed Dum Biryani</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('rabri')">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>03. Cryogenic Rabri Cloud</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('mango')">
+            <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>04. Nitrogen Mango Sphere</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('rasmalai')">
+            <img src="https://images.unsplash.com/photo-1594179047519-f347310d3322?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>05. Molecular Saffron Rasmalai</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('eggfire')">
+            <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>06. Egg Fire Rice 🍚</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('kfc')">
+            <img src="https://images.unsplash.com/photo-1626645738196-c2a7c8d08f58?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>07. Lab-Spec Chicken KFC 🍗</h3></div>
+        </div>
+
+        <section class="lab-notes-container">
+            <h2 style="font-family: 'Montserrat'; letter-spacing: 4px; font-weight: 300; text-transform: uppercase;">Laboratory Notes</h2>
+            <div class="note-card">
+                <span class="note-date">February 28, 2026</span>
+                <p style="font-style: italic; color: #444; margin-top: 10px;">"Currently calibrating pH levels for deconstructed Rasmalai. Aiming for 4.2 pH for structural integrity."</p>
+            </div>
+            <div class="note-card">
+                <span class="note-date">February 20, 2026</span>
+                <p style="font-style: italic; color: #444; margin-top: 10px;">"Finalized the 'Chefs-Hub' interface. Focused on a professional, authentic aesthetic that moves away from standard dark themes."</p>
+            </div>
+        </section>
 
         <section class="contact-section">
-            <h2 style="font-family: 'Montserrat'; letter-spacing: 3px; font-weight: 300;">Let's Create Something Extraordinary.</h2>
+            <h2 style="font-family: 'Montserrat'; letter-spacing: 3px; font-weight: 300; font-size: 2rem;">Let's Create Something Extraordinary.</h2>
             <div class="contact-grid">
-                <div style="background:#f9f9f9; padding:30px;"><button class="btn-sage">Send Message</button></div>
+                <div class="contact-form">
+                    <input type="text" placeholder="Full Name">
+                    <input type="email" placeholder="Email Address">
+                    <textarea placeholder="Tell me about your project..." rows="6"></textarea>
+                    <button class="btn-sage">Send Message</button>
+                </div>
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                     <p style="font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Direct Contact</p>
                     <p style="font-size: 1.2rem; color: var(--spice);">vishnudharreddybalam@gmail.com</p>
                     <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 25px;">
                         <div class="signature" style="font-size: 2rem; color: var(--spice); margin: 0;">Cool Cook</div>
+                        <p style="font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #aaa;">Engineering the future of flavor</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="footer-legal"><p>© 2026 CHEFS-HUB BY B. VISHNUDHAR REDDY. ALL RIGHTS RESERVED.</p></div>
+        <div class="footer-legal">
+            <p>© 2026 CHEFS-HUB BY B. VISHNUDHAR REDDY. ALL RIGHTS RESERVED.</p>
+        </div>
     </div>
 
     <div id="recipe-page">
-        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 30px;">← BACK</p>
+        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 30px;">← BACK TO COLLECTION</p>
         <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; border-bottom: 2px solid var(--accent); padding-bottom: 10px;"></h1>
         <div id="materials-list" class="materials-section"></div>
         <div id="steps-content"></div>
@@ -160,7 +208,7 @@
                 steps: ["Pre-chill long-grain rice to 4°C.", "Analyze rice grain separation index.", "Clean carbon steel wok with oil.", "Heat wok to 250°C (Wok Hei range).", "Verify temp via infrared thermometer.", "Whisk eggs with Smoked Sea Salt.", "Introduce rice to 250°C environment.", "Execute high-RPM technical wok toss.", "Analyze Maillard-reaction on eggs.", "Flash-sear proteins at high temp.", "Monitor smoke infusion into grains.", "Introduce light soy-lipid binding.", "Apply toasted sesame oil aromatics.", "Check moisture evaporation rate.", "Add MSG for glutamate balancing.", "Toss scallions for thermal crunch.", "Verify Wok Hei aromatic signature.", "Check rice grain structural bite.", "Analyze visual color contrast.", "Final sign by Cool Cook."]
             },
             kfc: { 
-                title: "07. Chicken KFC 🍗", 
+                title: "07. Lab-Spec Chicken KFC 🍗", 
                 materials: "Materials: Pressure Fryer, Brine Tank, Centrifuge, Infrared Temp Gun. Ingredients: Organic Chicken Thighs, MSG, 11 Secret MPC Spices, Double-Refined Flour, Buttermilk, Cold-Pressed Lipid Oil, Smoked Sea Salt.",
                 steps: ["Sanitize laboratory station and calibrate pressure fryer.", "Measure protein core temp (Aim: 4°C).", "Prepare 6% saline brine solution.", "Submerge chicken in brine for 12 hours.", "Analyze moisture absorption index.", "Centrifuge '11 Secret Spices' for molecular uniformity.", "Calibrate flour density for optimal coating.", "Prepare buttermilk bath with lactic acid check.", "Dip protein into lipid-binding buttermilk.", "Apply primary spice-flour coating.", "Execute second 'Double-Dip' sequence.", "Verify surface tension of the breading.", "Heat oil to exactly 175°C (Infrared check).", "Introduce chicken to the high-pressure fryer.", "Monitor internal pressure (Seal: 12 PSI).", "Flash-fry for 360 seconds for Maillard crust.", "Check internal thermal core (Aim: 74°C).", "De-grease via high-velocity air dryer.", "Apply final Smoked Sea Salt mist.", "Final sign-off by Cool Cook."]
             }
@@ -181,5 +229,5 @@
         }
     </script>
 </body>
-    </html>
+            </html>
     
