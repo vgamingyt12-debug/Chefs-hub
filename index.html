@@ -6,72 +6,27 @@
     <title>Chefs-Hub | Digital Culinary Laboratory 2026</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
+        :root { --bg-warm: #fdfaf5; --spice: #b35900; --text-deep: #2c1a0a; --accent: #d4a373; --sage: #8a9a5b; }
+        body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; padding: 0; overflow-x: hidden; }
         
-        :root { 
-            --bg-warm: #fdfaf5; 
-            --spice: #b35900; 
-            --text-deep: #2c1a0a; 
-            --accent: #d4a373; 
-            --sage: #8a9a5b; 
-        }
-
-        body { 
-            background: var(--bg-warm); 
-            color: var(--text-deep); 
-            font-family: 'Garamond', serif; 
-            margin: 0; 
-            padding: 0;
-            overflow-x: hidden; 
-        }
-
-        /* WELCOME SCREEN */
-        #welcome-screen { 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            background: linear-gradient(rgba(44, 26, 10, 0.85), rgba(44, 26, 10, 0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200'); 
-            background-size: cover; 
-            color: #fff; 
-        }
-
+        #welcome-screen { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(44, 26, 10, 0.85), rgba(44, 26, 10, 0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200'); background-size: cover; color: #fff; }
         .chef-title { font-size: 3.5rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; text-transform: uppercase; }
         .signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--accent); margin-top: 10px; }
         .cool-cook-tag { font-family: 'Montserrat'; font-size: 0.8rem; letter-spacing: 4px; background: var(--spice); padding: 8px 25px; border-radius: 50px; margin-top: 15px; color: white; }
-        .welcome-msg { max-width: 600px; font-size: 1.1rem; line-height: 1.6; margin: 25px 0; color: #ddd; font-style: italic; }
-
-        /* CONTENT SECTIONS */
+        
         #gallery-page, #recipe-page { display: none; padding: 40px 5%; max-width: 1000px; margin: auto; }
-
-        .vision-section { padding: 60px 0; text-align: center; border-bottom: 1px solid #eee; background: white; margin-bottom: 40px; }
-        .vision-title { font-family: 'Montserrat'; letter-spacing: 5px; font-weight: 300; text-transform: uppercase; margin-bottom: 20px; }
-
-        /* DISH CARDS */
         .dish-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; margin-bottom: 40px; border: 1px solid #f0f0f0; }
-        .dish-card:hover { transform: translateY(-5px); }
         .dish-card img { width: 100%; height: 450px; object-fit: cover; }
+        
+        .step-row { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .step-num { color: var(--spice); font-weight: bold; min-width: 35px; font-family: 'Montserrat'; font-size: 1rem; }
+        .lab-data-tag { display: inline-block; background: #f0f0f0; padding: 3px 8px; border-radius: 4px; font-family: 'Montserrat'; font-size: 0.65rem; color: #666; margin-top: 5px; text-transform: uppercase; }
 
-        /* LABORATORY NOTES */
-        .lab-notes-container { padding: 40px 0; text-align: left; }
-        .note-card { background: white; padding: 25px; border-left: 5px solid var(--sage); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .note-date { font-family: 'Montserrat'; font-size: 0.7rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; }
-
-        /* RECIPE DETAILS */
-        .step-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
-        .step-num { color: var(--spice); font-weight: bold; min-width: 35px; font-family: 'Montserrat'; font-size: 1.2rem; }
-        .lab-data-tag { display: inline-block; background: #f0f0f0; padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat'; font-size: 0.7rem; color: #666; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .materials-box { background: #fff; padding: 20px; border: 1px dashed var(--accent); margin-bottom: 30px; border-radius: 8px; }
-
-        /* CONTACT SECTION */
         .contact-section { padding: 80px 0; background: white; border-top: 1px solid #eee; margin-top: 60px; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat'; box-sizing: border-box; }
-        .btn-sage { background: var(--sage); color: white; padding: 18px 35px; border: none; border-radius: 4px; cursor: pointer; font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; width: 100%; }
+        .btn-sage { background: var(--sage); color: white; padding: 18px 35px; border: none; border-radius: 4px; cursor: pointer; font-family: 'Montserrat'; text-transform: uppercase; width: 100%; }
         .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; }
-        
-        .footer-legal { padding: 60px; background: #1a1006; color: #888; text-align: center; font-size: 0.75rem; letter-spacing: 1px; margin-top: 40px; }
+        .footer-legal { padding: 60px; background: #1a1006; color: #888; text-align: center; font-size: 0.75rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -80,170 +35,76 @@
         <h1 class="chef-title">Chefs-Hub</h1>
         <div class="signature">B. Vishnudhar Reddy</div>
         <div class="cool-cook-tag">Cool Cook | Founder</div>
-        <div class="welcome-msg">
-            "A premium digital asset merging technical MPC engineering with modern Indian gastronomy."
-        </div>
-        <button class="btn-spice" onclick="enterSite()">View Portfolio</button>
+        <button class="btn-spice" style="margin-top: 25px;" onclick="enterSite()">View Laboratory</button>
     </div>
 
     <div id="gallery-page">
-        <div class="vision-section">
-            <h2 class="vision-title">THE INNOVATION LAB</h2>
-            <p style="color: #666; line-height: 1.8;">
-                Chefs-Hub is a scalable culinary brand focused on molecular precision. 
-                Showcasing proprietary technical recipes and scientific flavor models for 2026.
-            </p>
-        </div>
-
-        <div class="dish-card" onclick="openRecipe('makhani')">
-            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000">
-            <div style="padding: 25px; text-align: center;"><h3>01. Smoked Makhani Sphere</h3></div>
-        </div>
-        <div class="dish-card" onclick="openRecipe('biryani')">
-            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000">
-            <div style="padding: 25px; text-align: center;"><h3>02. Deconstructed Dum Biryani</h3></div>
-        </div>
-        <div class="dish-card" onclick="openRecipe('rabri')">
-            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000">
-            <div style="padding: 25px; text-align: center;"><h3>03. Cryogenic Rabri Cloud</h3></div>
-        </div>
-        <div class="dish-card" onclick="openRecipe('mango')">
-            <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=1000">
-            <div style="padding: 25px; text-align: center;"><h3>04. Nitrogen Mango Sphere</h3></div>
-        </div>
-        <div class="dish-card" onclick="openRecipe('rasmalai')">
-            <img src="https://images.unsplash.com/photo-1594179047519-f347310d3322?w=1000">
-            <div style="padding: 25px; text-align: center;"><h3>05. Molecular Saffron Rasmalai</h3></div>
-        </div>
-        <div class="dish-card" onclick="openRecipe('eggfire')">
-            <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=1000">
-            <div style="padding: 25px; text-align: center;"><h3>06. Egg Fire Rice 🍚</h3></div>
-        </div>
-
-        <section class="lab-notes-container">
-            <h2 style="font-family: 'Montserrat'; letter-spacing: 4px; font-weight: 300; text-transform: uppercase;">Laboratory Notes</h2>
-            <div class="note-card">
-                <span class="note-date">February 28, 2026</span>
-                <p style="font-style: italic; color: #444; margin-top: 10px;">"Currently calibrating pH levels for deconstructed Rasmalai. Aiming for 4.2 pH for structural integrity."</p>
-            </div>
-        </section>
+        <div class="dish-card" onclick="openRecipe('makhani')"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000"><div style="padding:25px; text-align:center;"><h3>01. Smoked Makhani Sphere</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('biryani')"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000"><div style="padding:25px; text-align:center;"><h3>02. Deconstructed Dum Biryani</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('rabri')"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000"><div style="padding:25px; text-align:center;"><h3>03. Cryogenic Rabri Cloud</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('mango')"><img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=1000"><div style="padding:25px; text-align:center;"><h3>04. Nitrogen Mango Sphere</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('rasmalai')"><img src="https://images.unsplash.com/photo-1594179047519-f347310d3322?w=1000"><div style="padding:25px; text-align:center;"><h3>05. Molecular Saffron Rasmalai</h3></div></div>
+        <div class="dish-card" onclick="openRecipe('eggfire')"><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=1000"><div style="padding:25px; text-align:center;"><h3>06. Egg Fire Rice 🍚</h3></div></div>
 
         <section class="contact-section">
-            <h2 style="font-family: 'Montserrat'; letter-spacing: 3px; font-weight: 300; font-size: 2rem;">Let's Create Something Extraordinary.</h2>
+            <h2 style="font-family: 'Montserrat'; letter-spacing: 3px;">Let's Create Something Extraordinary.</h2>
             <div class="contact-grid">
-                <div class="contact-form">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email Address">
-                    <textarea placeholder="Tell me about your project..." rows="6"></textarea>
-                    <button class="btn-sage">Send Message</button>
-                </div>
-                <div style="display: flex; flex-direction: column; justify-content: center;">
-                    <p style="font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Direct Contact</p>
-                    <p style="font-size: 1.2rem; color: var(--spice);">vishnudharreddybalam@gmail.com</p>
-                    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 25px;">
-                        <div class="signature" style="font-size: 2rem; color: var(--spice); margin: 0;">Cool Cook</div>
-                        <p style="font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #aaa;">Engineering the future of flavor</p>
-                    </div>
+                <div style="background:#f9f9f9; padding:30px;"><button class="btn-sage">Send Message</button></div>
+                <div>
+                    <p style="color:var(--spice); font-size:1.2rem;">vishnudharreddybalam@gmail.com</p>
+                    <div class="signature" style="font-size:1.8rem; color:var(--spice);">Cool Cook</div>
                 </div>
             </div>
         </section>
-
-        <div class="footer-legal">
-            <p>© 2026 CHEFS-HUB BY B. VISHNUDHAR REDDY. ALL RIGHTS RESERVED.</p>
-        </div>
+        <div class="footer-legal"><p>© 2026 CHEFS-HUB BY B. VISHNUDHAR REDDY.</p></div>
     </div>
 
     <div id="recipe-page">
-        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 30px;">← BACK TO COLLECTION</p>
-        <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; border-bottom: 2px solid var(--accent); padding-bottom: 10px;"></h1>
-        <div id="materials-list" class="materials-box"></div>
+        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight:bold;">← BACK</p>
+        <h1 id="recipe-title" style="color:var(--spice); font-weight:300; border-bottom: 2px solid var(--accent);"></h1>
         <div id="steps-content"></div>
     </div>
 
     <script>
         function enterSite() {
-            document.getElementById('welcome-screen').style.display = 'none';
-            document.getElementById('recipe-page').style.display = 'none';
-            document.getElementById('gallery-page').style.display = 'block';
+            document.getElementById('welcome-screen').style.display='none';
+            document.getElementById('recipe-page').style.display='none';
+            document.getElementById('gallery-page').style.display='block';
             window.scrollTo(0,0);
         }
 
+        const commonSteps = [
+            "Sanitize laboratory station.", "Calibrate digital scales to 0.01g.", "Prepare distilled water bath.",
+            "Sterilize all glass beakers.", "Check N2O siphon pressure.", "Measure core ingredient temperature.",
+            "Analyze pH levels of base liquid.", "Execute primary molecular bonding.", "Monitor viscosity changes.",
+            "Adjust saline concentration.", "Apply vacuum seal at -0.9 Bar.", "Verify thermal consistency.",
+            "Infuse aromatic lipids.", "Begin secondary structural formation.", "Execute flash-chill sequence.",
+            "Perform surface tension test.", "Capture molecular encapsulation.", "Dehydrate garnishes at 60°C.",
+            "Assemble final structural components.", "Verify signature Cool Cook plating."
+        ];
+
         const recipes = {
-            makhani: { 
-                title: "Execution: Smoked Makhani Sphere", 
-                materials: "Materials: Sous-vide Circulator, Vacuum Sealer, N2O Siphon, Hickory Wood Chips. Ingredients: 30mm Paneer, Saffron Milk, Roma Tomato Reduction, Cold Emulsified Butter, Sea Salt.",
-                steps: [
-                    { text: "Precision cut Malai Paneer into 30mm cubes for uniform heat distribution.", tag: "Unit: 30mm³" },
-                    { text: "Infuse 100ml milk with grade-A saffron strands for 30 minutes.", tag: "Time: 1800s" },
-                    { text: "Vacuum-seal the paneer with the infusion to force flavor into the molecular structure.", tag: "Pressure: -0.8 Bar" },
-                    { text: "Sous-vide at exactly 65°C for 20 minutes to achieve perfect protein denaturation.", tag: "Temp: 65°C" },
-                    { text: "Charge a siphon with N2O and Hickory smoke for 5 minutes over the sauce.", tag: "Gas: N2O + Smoke" }
-                ] 
-            },
-            biryani: { 
-                title: "Execution: Modern Dum Biryani", 
-                materials: "Materials: Heavy Copper Vessel, pH Meter, Vacuum Marinator, Dehydrator. Ingredients: 2-Year Aged Basmati, Protein Essence (Yakhni), Papain Enzyme, Pink Himalayan Salt, Fried Alliums.",
-                steps: [
-                    { text: "Age Basmati rice for 2 years to ensure optimal starch crystallization.", tag: "Age: 24 Months" },
-                    { text: "Calibrate soaking water to a neutral pH of 7.0 using the digital meter.", tag: "pH Level: 7.0" },
-                    { text: "Vacuum-marinate meat with papaya enzymes for accelerated tenderization.", tag: "Enzyme: Papain" },
-                    { text: "Apply constant Dum heat for 42 minutes to equalize atmospheric pressure.", tag: "Time: 42 Min" }
-                ] 
-            },
-            rabri: { 
-                title: "Execution: Cryogenic Rabri Cloud", 
-                materials: "Materials: Evaporator, High-RPM Whisk, Dewars Flask. Ingredients: Full-fat Buffalo Milk, Liquid Nitrogen, Organic Jaggery, 24k Gold Leaf, Pistachio Soil, Fleur de Sel.",
-                steps: [
-                    { text: "Reduce full-fat milk by 70% volume via slow evaporation at controlled temp.", tag: "Reduction: 70%" },
-                    { text: "Introduce Liquid Nitrogen (-196°C) while whisking at high RPM for aeration.", tag: "Cryo: -196°C" },
-                    { text: "Capture the resulting 'frozen clouds' and plate atop salted pistachio soil.", tag: "State: Solid Gas" }
-                ] 
-            },
-            mango: { 
-                title: "Execution: Nitrogen Mango Sphere", 
-                materials: "Materials: Spherification Spoons, pH Calibrator, Nitrogen Bath. Ingredients: Alphonso Pulp, Calcium Lactate, Sodium Alginate, Citric Acid, Distilled Water, Mango Malic Salt.",
-                steps: [
-                    { text: "Extract pure pulp from premium Alphonso mangoes and filter for 100% purity.", tag: "Origin: Alphonso" },
-                    { text: "Calibrate the pulp acidity to 4.5 pH for optimal molecular bonding.", tag: "pH Level: 4.5" },
-                    { text: "Execute spherification in Calcium bath; submerge in Nitrogen for 5 seconds.", tag: "Cryo-Dip: 5s" }
-                ] 
-            },
-            rasmalai: { 
-                title: "Execution: Molecular Saffron Rasmalai", 
-                materials: "Materials: Protein Separator, Vacuum Compressor, Calcium Bath. Ingredients: Buffalo Milk Curds, Cardamom Extract, Saffron syrup (1.25 SG), Reverse Spherification Salts, Micro-Pistachio powder.",
-                steps: [
-                    { text: "Extract pure protein curds; calibrate saffron syrup to specific gravity of 1.25.", tag: "SG: 1.25" },
-                    { text: "Vacuum-compress curds with essence to remove oxygen and densify texture.", tag: "Pressure: -0.9 Bar" },
-                    { text: "Execute reverse spherification for the liquid center using Calcium salts.", tag: "Bath: Calcium" }
-                ] 
-            },
-            eggfire: { 
-                title: "Execution: Egg Fire Rice 🍚", 
-                materials: "Materials: Carbon Steel Wok, Infrared Thermometer, Rice Cooler. Ingredients: Cold Long-Grain Rice, Pasture-Raised Eggs, MSG, Toasted Sesame Oil, Light Soy Sauce, Smoked Sea Salt, Scallions.",
-                steps: [
-                    { text: "Pre-chill long-grain rice to 4°C to separate starch grains and prevent sticking.", tag: "Temp: 4°C" },
-                    { text: "Heat Carbon Steel Wok until infrared thermometer reads 250°C (Wok Hei range).", tag: "Wok Hei: 250°C" },
-                    { text: "Flash-sear eggs with Smoked Sea Salt for a Maillard-reaction savory crust.", tag: "Salt: Smoked Sea" },
-                    { text: "Toss rice at high speed for maximum heat distribution and smoke infusion.", tag: "Motion: High RPM" },
-                    { text: "Finish with light soy sauce and toasted sesame oil for aromatic lipid binding.", tag: "Finish: Lipid Bind" }
-                ] 
-            }
+            makhani: { title: "01. Smoked Makhani Sphere", steps: commonSteps },
+            biryani: { title: "02. Deconstructed Dum Biryani", steps: commonSteps },
+            rabri: { title: "03. Cryogenic Rabri Cloud", steps: commonSteps },
+            mango: { title: "04. Nitrogen Mango Sphere", steps: commonSteps },
+            rasmalai: { title: "05. Molecular Saffron Rasmalai", steps: commonSteps },
+            eggfire: { title: "06. Egg Fire Rice 🍚", steps: commonSteps }
         };
 
         function openRecipe(key) {
-            document.getElementById('gallery-page').style.display = 'none';
-            document.getElementById('recipe-page').style.display = 'block';
+            document.getElementById('gallery-page').style.display='none';
+            document.getElementById('recipe-page').style.display='block';
             const r = recipes[key];
             document.getElementById('recipe-title').innerText = r.title;
-            document.getElementById('materials-list').innerText = r.materials;
             let h = "";
             r.steps.forEach((s, i) => { 
-                h += `<div class="step-row"><div class="step-num">${i+1}</div><div><p style="margin:0;">${s.text}</p><span class="lab-data-tag">${s.tag}</span></div></div>`; 
+                h += `<div class="step-row"><div class="step-num">${i+1}</div><div>${s}</div></div>`; 
             });
             document.getElementById('steps-content').innerHTML = h;
             window.scrollTo(0,0);
         }
     </script>
 </body>
-                </html>
-                
+                                      </html>
+                                      
