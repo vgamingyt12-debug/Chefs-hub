@@ -6,40 +6,71 @@
     <title>Chefs-Hub | Digital Culinary Laboratory 2026</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
-        :root { --bg-warm: #fdfaf5; --spice: #b35900; --text-deep: #2c1a0a; --accent: #d4a373; --sage: #8a9a5b; }
-        body { background: var(--bg-warm); color: var(--text-deep); font-family: 'Garamond', serif; margin: 0; overflow-x: hidden; }
         
+        :root { 
+            --bg-warm: #fdfaf5; 
+            --spice: #b35900; 
+            --text-deep: #2c1a0a; 
+            --accent: #d4a373; 
+            --sage: #8a9a5b; 
+        }
+
+        body { 
+            background: var(--bg-warm); 
+            color: var(--text-deep); 
+            font-family: 'Garamond', serif; 
+            margin: 0; 
+            padding: 0;
+            overflow-x: hidden; 
+        }
+
         /* WELCOME SCREEN */
-        #welcome-screen { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(44, 26, 10, 0.85), rgba(44, 26, 10, 0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200'); background-size: cover; color: #fff; }
+        #welcome-screen { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            background: linear-gradient(rgba(44, 26, 10, 0.85), rgba(44, 26, 10, 0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200'); 
+            background-size: cover; 
+            color: #fff; 
+        }
+
         .chef-title { font-size: 3.5rem; letter-spacing: 12px; font-weight: 300; margin: 0; color: #f5cc91; text-transform: uppercase; }
         .signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--accent); margin-top: 10px; }
         .cool-cook-tag { font-family: 'Montserrat'; font-size: 0.8rem; letter-spacing: 4px; background: var(--spice); padding: 8px 25px; border-radius: 50px; margin-top: 15px; color: white; }
         .welcome-msg { max-width: 600px; font-size: 1.1rem; line-height: 1.6; margin: 25px 0; color: #ddd; font-style: italic; }
 
-        /* INNOVATION LAB SECTION */
-        .vision-section { padding: 60px 10%; background: white; text-align: center; border-bottom: 1px solid #eee; }
+        /* CONTENT SECTIONS */
+        #gallery-page, #recipe-page { display: none; padding: 40px 5%; max-width: 1000px; margin: auto; }
+
+        .vision-section { padding: 60px 0; text-align: center; border-bottom: 1px solid #eee; background: white; margin-bottom: 40px; }
         .vision-title { font-family: 'Montserrat'; letter-spacing: 5px; font-weight: 300; text-transform: uppercase; margin-bottom: 20px; }
 
-        /* GALLERY & CARDS */
-        #gallery-page, #recipe-page { display: none; padding: 40px 5%; max-width: 900px; margin: auto; }
+        /* DISH CARDS */
         .dish-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; margin-bottom: 40px; border: 1px solid #f0f0f0; }
+        .dish-card:hover { transform: translateY(-5px); }
         .dish-card img { width: 100%; height: 450px; object-fit: cover; }
-        
-        /* RECIPE PAGE STYLES */
-        .step-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; align-items: flex-start; line-height: 1.6; }
+
+        /* LABORATORY NOTES */
+        .lab-notes-container { padding: 40px 0; text-align: left; }
+        .note-card { background: white; padding: 25px; border-left: 5px solid var(--sage); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .note-date { font-family: 'Montserrat'; font-size: 0.7rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* RECIPE DETAILS */
+        .step-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
         .step-num { color: var(--spice); font-weight: bold; min-width: 35px; font-family: 'Montserrat'; font-size: 1.2rem; }
         .lab-data-tag { display: inline-block; background: #f0f0f0; padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat'; font-size: 0.7rem; color: #666; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; }
-
-        /* EXTRAORDINARY CONTACT SECTION */
-        .contact-section { padding: 80px 10%; background: white; border-top: 1px solid #eee; text-align: left; }
+        /* CONTACT SECTION */
+        .contact-section { padding: 80px 0; background: white; border-top: 1px solid #eee; margin-top: 60px; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
         .contact-form input, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat'; box-sizing: border-box; }
         .btn-sage { background: var(--sage); color: white; padding: 18px 35px; border: none; border-radius: 4px; cursor: pointer; font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; width: 100%; }
-        .right-info { display: flex; flex-direction: column; justify-content: space-between; }
-        .social-link { color: var(--spice); text-decoration: none; display: block; margin: 10px 0; font-family: 'Montserrat'; font-size: 0.95rem; }
-        .footer-legal { padding: 40px; background: #1a1006; color: #888; text-align: center; font-size: 0.75rem; letter-spacing: 1px; }
+        .btn-spice { padding: 15px 40px; background: var(--spice); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; }
+        
+        .footer-legal { padding: 60px; background: #1a1006; color: #888; text-align: center; font-size: 0.75rem; letter-spacing: 1px; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -59,32 +90,37 @@
             <h2 class="vision-title">THE INNOVATION LAB</h2>
             <p style="color: #666; line-height: 1.8;">
                 Chefs-Hub is a scalable culinary brand focused on molecular precision. 
-                This asset includes 4 proprietary technical recipes, scientific data models, and a professional-grade UI.
+                Showcasing proprietary technical recipes and scientific flavor models for 2026.
             </p>
         </div>
 
-        <div style="margin-top: 50px;">
-            <div class="dish-card" onclick="openRecipe('makhani')">
-                <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000">
-                <div style="padding: 25px; text-align: center;"><h3>01. Smoked Makhani Sphere</h3></div>
-            </div>
-            <div class="dish-card" onclick="openRecipe('biryani')">
-                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000">
-                <div style="padding: 25px; text-align: center;"><h3>02. Deconstructed Dum Biryani</h3></div>
-            </div>
-            <div class="dish-card" onclick="openRecipe('rabri')">
-                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000">
-                <div style="padding: 25px; text-align: center;"><h3>03. Cryogenic Rabri Cloud</h3></div>
-            </div>
-            <div class="dish-card" onclick="openRecipe('mango')">
-                <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=1000">
-                <div style="padding: 25px; text-align: center;"><h3>04. Nitrogen Mango Sphere</h3></div>
-            </div>
+        <div class="dish-card" onclick="openRecipe('makhani')">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>01. Smoked Makhani Sphere</h3></div>
         </div>
+        <div class="dish-card" onclick="openRecipe('biryani')">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>02. Deconstructed Dum Biryani</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('rabri')">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>03. Cryogenic Rabri Cloud</h3></div>
+        </div>
+        <div class="dish-card" onclick="openRecipe('mango')">
+            <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=1000">
+            <div style="padding: 25px; text-align: center;"><h3>04. Nitrogen Mango Sphere</h3></div>
+        </div>
+
+        <section class="lab-notes-container">
+            <h2 style="font-family: 'Montserrat'; letter-spacing: 4px; font-weight: 300; text-transform: uppercase;">Laboratory Notes</h2>
+            <div class="note-card">
+                <span class="note-date">February 28, 2026</span>
+                <p style="font-style: italic; color: #444; margin-top: 10px;">"Currently calibrating pH levels for deconstructed Rasmalai. Aiming for 4.2 pH for structural integrity."</p>
+            </div>
+        </section>
 
         <section class="contact-section">
             <h2 style="font-family: 'Montserrat'; letter-spacing: 3px; font-weight: 300; font-size: 2rem;">Let's Create Something Extraordinary.</h2>
-            <p style="color: #666; font-size: 1.1rem; margin-top: 10px;">Reach out for collaborations, culinary inquiries, or just to say hello.</p>
             <div class="contact-grid">
                 <div class="contact-form">
                     <input type="text" placeholder="Full Name">
@@ -92,12 +128,10 @@
                     <textarea placeholder="Tell me about your project..." rows="6"></textarea>
                     <button class="btn-sage">Send Message</button>
                 </div>
-                <div class="right-info">
-                    <div>
-                        <p style="font-weight: bold; margin-bottom: 10px; font-family: 'Montserrat'; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Direct Contact</p>
-                        <p style="font-size: 1.2rem; color: var(--spice);">vishnudharreddybalam@gmail.com</p>
-                    </div>
-                    <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 25px;">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <p style="font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Direct Contact</p>
+                    <p style="font-size: 1.2rem; color: var(--spice);">vishnudharreddybalam@gmail.com</p>
+                    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 25px;">
                         <div class="signature" style="font-size: 2rem; color: var(--spice); margin: 0;">Cool Cook</div>
                         <p style="font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #aaa;">Engineering the future of flavor</p>
                     </div>
@@ -111,9 +145,9 @@
     </div>
 
     <div id="recipe-page">
-        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold;">← BACK TO COLLECTION</p>
+        <p onclick="enterSite()" style="cursor:pointer; color:var(--spice); font-weight: bold; margin-bottom: 30px;">← BACK TO COLLECTION</p>
         <h1 id="recipe-title" style="color:var(--spice); font-weight: 300; border-bottom: 2px solid var(--accent); padding-bottom: 10px;"></h1>
-        <div id="steps-content" style="margin-top: 30px;"></div>
+        <div id="steps-content"></div>
     </div>
 
     <script>
@@ -182,12 +216,12 @@
             document.getElementById('recipe-title').innerText = r.title;
             let h = "";
             r.steps.forEach((s, i) => { 
-                h += `<div class="step-row"><div class="step-num">${i+1}</div><div><p>${s.text}</p><span class="lab-data-tag">${s.tag}</span></div></div>`; 
+                h += `<div class="step-row"><div class="step-num">${i+1}</div><div><p style="margin:0;">${s.text}</p><span class="lab-data-tag">${s.tag}</span></div></div>`; 
             });
             document.getElementById('steps-content').innerHTML = h;
             window.scrollTo(0,0);
         }
     </script>
 </body>
-            </html>
-    
+                </html>
+                    
